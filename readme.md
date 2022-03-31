@@ -62,7 +62,7 @@ Paramètres des fichiers de sauvegardes
 <!-- -->
 Modification du mot de passe
 <!-- -->
-![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/parametre_motdepasse.png)
+![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/parametre_motdepassse.png)
 <!-- -->
 Modification du mot de passe
 <!-- -->
