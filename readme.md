@@ -6,6 +6,8 @@ HEPL Seraing Informatique de gestion Bloc2 Juin 2022
 ## Présentation générale
 Avec cette application vous allez avoir une vue ensemble sur tout vos investissements dans les Crypto Monnaies. Ils vous suffira d'encoder toutes vos transaction et l'application ferra le reste. 
 <!-- -->
+:page_facing_up: [Mockup](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/mockups.pdf)
+<!-- -->
 ### Home
 Sur la première page vous pouvez retrouver :
 + Votre solde actuel ainssi que l'augmentaion/diminution en 24h
@@ -64,7 +66,7 @@ Modification du mot de passe
 <!-- -->
 ![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/parametre_motdepassse.png)
 <!-- -->
-Modification du mot de passe
+Modification de la langue, de la devise et du thème
 <!-- -->
 ![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/parametre_affichage.png)
 <!-- -->
