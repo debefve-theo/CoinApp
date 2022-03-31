@@ -12,4 +12,15 @@ Avec cette application vous allez avoir une vue ensemble sur tout vos investisse
 
 
 ### Home
-![Page Home](https://github.com/hepl-csb-student22/labo-final-TheoDeb/documentation/screenshot/home.png)
+Sur la première page vous pouvez retrouver :
+	+ Votre solde actuel ainssi que l'augmentaion/diminution en 24h
+	+ La valeur total d'achat ainssi que les Gains/Pertes actuel
+
+	+ Dans la zone du bas vous pouvez trouver le détails précis de 	chaque crypto que vous possédez.
+![Page Home](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/home.png)
+### Transaction
+![Page Transaction](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/home.png)
+### Repartition
+![Page Repartition](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/home.png)
+### Watchlist
+![Page Watchlist](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/home.png)
