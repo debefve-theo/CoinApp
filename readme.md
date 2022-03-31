@@ -42,7 +42,29 @@ Sur la page de vous pouvez retrouver :
 <!-- -->
 ![Page Watchlist](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/watchlist.png)
 <!-- -->
-Vous pouvez ajouter ou retire une Crypto Monnaie de votre watchlist.
+Vous pouvez ajouter ou retirer une Crypto Monnaie de votre watchlist.
 <!-- -->
 ![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/watchlist_add.png)
+<!-- -->
+### Connexion
+Pour pouvoir accéder a l'application vous devrez entrer votre mot de passe.
+<!-- -->
+![Page Watchlist](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/login.png)
+<!-- -->
+Vous pouvez créer plusieures portfolio avec des mot de passe différents.
+<!-- -->
+![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/login_add.png)
+<!-- -->
+### Paramètres
+Paramètres des fichiers de sauvegardes
+<!-- -->
+![Page Watchlist](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/parametre_fichier.png)
+<!-- -->
+Modification du mot de passe
+<!-- -->
+![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/parametre_motdepasse.png)
+<!-- -->
+Modification du mot de passe
+<!-- -->
+![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/parametre_affichage.png)
 <!-- -->
