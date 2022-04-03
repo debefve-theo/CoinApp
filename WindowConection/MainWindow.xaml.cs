@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright © 2022 - Theo Debefve
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,17 @@ namespace WindowConection
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly WindowConection.NewWindow WindowConection = new();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ButtonNew_Click(object sender, RoutedEventArgs e)
+        {
+            WindowConection.Show();
+            WindowConection.Focus();
+            WindowConection.Activate();
         }
     }
 }
