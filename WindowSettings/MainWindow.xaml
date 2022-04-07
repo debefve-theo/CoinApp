@@ -70,8 +70,9 @@
         </TabControl>
         <!-- Action button -->
         <DockPanel LastChildFill="False" Background="#FFF0F0F0" DockPanel.Dock="Bottom" Height="50">
-            <Button x:Name="ButtonAppliquer" Content="Appliquer" Margin="0,0,30,0"/>
-            <Button x:Name="ButtonAnuler" Content="Anuler" Margin="0,0,18,0"/>
+            <Button x:Name="BtnAppliquer" Content="Appliquer" Margin="0,0,30,0"/>
+            <Button x:Name="BtnAnuler" Content="Anuler" Margin="0,0,18,0"/>
+            <Button x:Name="BtnOk" Content="Ok" Margin="0,0,18,0"/>
         </DockPanel>
     </DockPanel>
 </Window>
