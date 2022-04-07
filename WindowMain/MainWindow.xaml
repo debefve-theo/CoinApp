@@ -1,0 +1,128 @@
+﻿<!-- Main window -->
+
+<!-- Copyright © 2022 - Theo Debefve -->
+
+<Window x:Class="WindowMain.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WindowMain"
+        mc:Ignorable="d"
+        Title="Home" Height="700" Width="1100"
+        FontFamily="Segoe UI">
+    <!-- Ressources -->
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}" x:Key="menuButton">
+            <Setter Property="Background" Value="#FFD6D6D6"/>
+            <Setter Property="BorderBrush" Value="#FFD6D6D6"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
+    <!-- Window -->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="80*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Menu -->
+        <StackPanel Grid.Column="0" Margin="10,20,10,20">
+            <StackPanel VerticalAlignment="Top">
+                <Button Content="Home" x:Name="BtnMenuHome" Style="{StaticResource menuButton}"  Margin="0,0,0,45"/>
+                <Button Content="Transaction" x:Name="BtnMenuTransaction" Style="{StaticResource menuButton}" Margin="0,0,0,20"/>
+                <Button Content="Répartition" x:Name="BtnMenuRepartition" Style="{StaticResource menuButton}" Margin="0,0,0,45"/>
+                <Button Content="Watchlist" x:Name="BtnMenuWatchlist" Style="{StaticResource menuButton}" Margin="0,0,0,220"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Bottom">
+                <Button Content="Paramètres" x:Name="BtnMenuParametre" Style="{StaticResource menuButton}" Margin="0,0,0,20"/>
+                <Button Content="Déconexion" x:Name="BtnMenuDeconexion" Style="{StaticResource menuButton}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Main -->
+        <Border Grid.Column="2" Background="#FFD6D6D6" CornerRadius="15,0,0,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="80*"/>
+                </Grid.RowDefinitions>
+                <!-- Box 1 -->
+                <DockPanel Grid.Column="0" Grid.Row="0">
+                    <Border Background="white" CornerRadius="15" Margin="40,20,20,20">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40*"/>
+                                <RowDefinition Height="60*"/>
+                            </Grid.RowDefinitions>
+
+                            <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="150">
+                                <TextBlock Text="Solde actuel" FontSize="18" FontWeight="Bold" Margin="0,15,0,0"/>
+                                <Button Width="20" Height="20" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Margin="15,15,0,0" >
+                                    <Image Source="/IconEye.png"/>
+                                </Button>
+                            </WrapPanel>
+
+                            <TextBlock Text="752,15 €" Grid.Row="1" Grid.Column="0" FontSize="36" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" Height="50" Margin="0,10,0,0"/>
+                            <Border Grid.Row="1" Grid.Column="1" Background="#FF23A708" CornerRadius="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,4" Height="40">
+                                <TextBlock Text="+ 2,31%" FontSize="16" FontWeight="Black" Foreground="White" Padding="15,10,15,10" VerticalAlignment="Top"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </DockPanel>
+                <!-- Box 2 -->
+                <DockPanel Grid.Column="1" Grid.Row="0">
+                    <Border Background="white" CornerRadius="15" Margin="20,20,40,20">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <WrapPanel Grid.Row="0" VerticalAlignment="Bottom" Margin="40,0,0,10">
+                                <TextBlock Text="Valeur total d'achats" FontSize="18" FontWeight="Bold"/>
+                                <TextBlock Text="895,05€" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
+                            </WrapPanel>
+                            <WrapPanel Grid.Row="1" VerticalAlignment="Top" Margin="40,10,0,0">
+                                <TextBlock Text="Gain/Perte total" FontSize="18" FontWeight="Bold"/>
+                                <TextBlock Text="- 150,02€" Foreground="#FFB90000" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
+                            </WrapPanel>
+                        </Grid>
+                    </Border>
+                </DockPanel>
+                <!-- Box 3 -->
+                <Grid Grid.ColumnSpan="2" Grid.Row="1">
+                    <StackPanel>
+                        <TextBlock Text="Votre portfolio" FontSize="18" FontWeight="Bold" Padding="40,20,0,20"/>
+                        <Border Background="white" CornerRadius="15" Margin="40,0,40,0">
+                            <ListView Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="15,15,15,15">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="" Width="60"/>
+                                        <GridViewColumn Header="Nom" Width="140"/>
+                                        <GridViewColumn Header="Prix" Width="120"/>
+                                        <GridViewColumn Header="24h" Width="100"/>
+                                        <GridViewColumn Header="Balance" Width="120"/>
+                                        <GridViewColumn Header="Gains/Perte" Width="120"/>
+                                        <GridViewColumn Header="Allocations" Width="120"/>
+                                        <!--DisplayMemberBinding="{Binding Name}-->
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
+
