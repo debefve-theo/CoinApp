@@ -30,97 +30,167 @@
         <!-- Menu -->
         <StackPanel Grid.Column="0" Margin="10,20,10,20">
             <StackPanel VerticalAlignment="Top">
-                <Button Content="Home" x:Name="BtnMenuHome" Style="{StaticResource menuButton}"  Margin="0,0,0,45"/>
-                <Button Content="Transaction" x:Name="BtnMenuTransaction" Style="{StaticResource menuButton}" Margin="0,0,0,20"/>
-                <Button Content="Répartition" x:Name="BtnMenuRepartition" Style="{StaticResource menuButton}" Margin="0,0,0,45"/>
-                <Button Content="Watchlist" x:Name="BtnMenuWatchlist" Style="{StaticResource menuButton}" Margin="0,0,0,220"/>
+                <Button Content="Home" x:Name="BtnMenuHome" Style="{StaticResource menuButton}"  Margin="0,0,0,45" Click="BtnMenuHome_Click"/>
+                <Button Content="Transaction" x:Name="BtnMenuTransaction" Style="{StaticResource menuButton}" Margin="0,0,0,20" Click="BtnMenuTransaction_Click"/>
+                <Button Content="Répartition" x:Name="BtnMenuRepartition" Style="{StaticResource menuButton}" Margin="0,0,0,45" Click="BtnMenuRepartition_Click"/>
+                <Button Content="Watchlist" x:Name="BtnMenuWatchlist" Style="{StaticResource menuButton}" Margin="0,0,0,220" Click="BtnMenuWatchlist_Click"/>
             </StackPanel>
             <StackPanel VerticalAlignment="Bottom">
-                <Button Content="Paramètres" x:Name="BtnMenuParametre" Style="{StaticResource menuButton}" Margin="0,0,0,20"/>
-                <Button Content="Déconexion" x:Name="BtnMenuDeconexion" Style="{StaticResource menuButton}"/>
+                <Button Content="Paramètres" x:Name="BtnMenuParametre" Style="{StaticResource menuButton}" Margin="0,0,0,20" Click="BtnMenuParametre_Click"/>
+                <Button Content="Déconexion" x:Name="BtnMenuDeconexion" Style="{StaticResource menuButton}" Click="BtnMenuDeconexion_Click"/>
             </StackPanel>
         </StackPanel>
 
-        <!-- Main -->
+        <!-- Main Box -->
         <Border Grid.Column="2" Background="#FFD6D6D6" CornerRadius="15,0,0,15">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition x:Name="ColHome" Width="*"/>
+                    <ColumnDefinition x:Name="ColTransaction" Width="0"/>
+                    <ColumnDefinition x:Name="ColRepartition" Width="0"/>
+                    <ColumnDefinition x:Name="ColWatchlist" Width="0"/>
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30*"/>
-                    <RowDefinition Height="80*"/>
-                </Grid.RowDefinitions>
-                <!-- Box 1 -->
-                <DockPanel Grid.Column="0" Grid.Row="0">
-                    <Border Background="white" CornerRadius="15" Margin="40,20,20,20">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="40*"/>
-                                <RowDefinition Height="60*"/>
-                            </Grid.RowDefinitions>
 
-                            <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="150">
-                                <TextBlock Text="Solde actuel" FontSize="18" FontWeight="Bold" Margin="0,15,0,0"/>
-                                <Button Width="20" Height="20" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Margin="15,15,0,0" >
-                                    <Image Source="/IconEye.png"/>
-                                </Button>
-                            </WrapPanel>
+                <!-- ########## Home ########## -->
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="80*"/>
+                    </Grid.RowDefinitions>
+                    <!-- Box 1 -->
+                    <DockPanel Grid.Column="0" Grid.Row="0">
+                        <Border Background="white" CornerRadius="15" Margin="40,20,20,20">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40*"/>
+                                    <RowDefinition Height="60*"/>
+                                </Grid.RowDefinitions>
 
-                            <TextBlock Text="752,15 €" Grid.Row="1" Grid.Column="0" FontSize="36" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" Height="50" Margin="0,10,0,0"/>
-                            <Border Grid.Row="1" Grid.Column="1" Background="#FF23A708" CornerRadius="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,4" Height="40">
-                                <TextBlock Text="+ 2,31%" FontSize="16" FontWeight="Black" Foreground="White" Padding="15,10,15,10" VerticalAlignment="Top"/>
+                                <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="150">
+                                    <TextBlock Text="Solde actuel" FontSize="18" FontWeight="Bold" Margin="0,15,0,0"/>
+                                    <Button Width="20" Height="20" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Margin="15,15,0,0" >
+                                        <Image Source="/IconEye.png"/>
+                                    </Button>
+                                </WrapPanel>
+
+                                <TextBlock Text="752,15 €" Grid.Row="1" Grid.Column="0" FontSize="36" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" Height="50" Margin="0,10,0,0"/>
+                                <Border Grid.Row="1" Grid.Column="1" Background="#FF23A708" CornerRadius="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,4" Height="40">
+                                    <TextBlock Text="+ 2,31%" FontSize="16" FontWeight="Black" Foreground="White" Padding="15,10,15,10" VerticalAlignment="Top"/>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </DockPanel>
+                    <!-- Box 2 -->
+                    <DockPanel Grid.Column="1" Grid.Row="0">
+                        <Border Background="white" CornerRadius="15" Margin="20,20,40,20">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <WrapPanel Grid.Row="0" VerticalAlignment="Bottom" Margin="40,0,0,10">
+                                    <TextBlock Text="Valeur total d'achats" FontSize="18" FontWeight="Bold"/>
+                                    <TextBlock Text="895,05€" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
+                                </WrapPanel>
+                                <WrapPanel Grid.Row="1" VerticalAlignment="Top" Margin="40,10,0,0">
+                                    <TextBlock Text="Gain/Perte total" FontSize="18" FontWeight="Bold"/>
+                                    <TextBlock Text="- 150,02€" Foreground="#FFB90000" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
+                                </WrapPanel>
+                            </Grid>
+                        </Border>
+                    </DockPanel>
+                    <!-- Box 3 -->
+                    <Grid Grid.ColumnSpan="2" Grid.Row="1">
+                        <StackPanel>
+                            <TextBlock Text="Votre portfolio" FontSize="18" FontWeight="Bold" Padding="40,20,0,20"/>
+                            <Border Background="white" CornerRadius="15" Margin="40,0,40,0">
+                                <ListView Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="15,15,15,15">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="" Width="60"/>
+                                            <GridViewColumn Header="Nom" Width="140"/>
+                                            <GridViewColumn Header="Prix" Width="120"/>
+                                            <GridViewColumn Header="24h" Width="100"/>
+                                            <GridViewColumn Header="Balance" Width="120"/>
+                                            <GridViewColumn Header="Gains/Perte" Width="120"/>
+                                            <GridViewColumn Header="Allocations" Width="120"/>
+                                            <!--DisplayMemberBinding="{Binding Name}-->
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
                             </Border>
-                        </Grid>
-                    </Border>
-                </DockPanel>
-                <!-- Box 2 -->
-                <DockPanel Grid.Column="1" Grid.Row="0">
-                    <Border Background="white" CornerRadius="15" Margin="20,20,40,20">
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+                <!-- ########## Transaction ########## -->
+                <StackPanel Grid.Column="1">
+                    <Grid Margin="40,20,40,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Header -->
+                        <TextBlock Grid.Column="0" Text="Votre portfolio" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"/>
+                        <Border Grid.Column="1" Background="white" CornerRadius="15" HorizontalAlignment="Right" Width="220" Height="45">
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" SelectedIndex="0">
+                                <ComboBoxItem Content="All"/>
+                                <ComboBoxItem Content="Achat"/>
+                                <ComboBoxItem Content="Vente"/>
+                            </ComboBox>
+                        </Border>
+                    </Grid>
+
+                    <!-- List -->
+                    <Border Background="white" CornerRadius="15" Margin="40,0,40,0">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
 
-                            <WrapPanel Grid.Row="0" VerticalAlignment="Bottom" Margin="40,0,0,10">
-                                <TextBlock Text="Valeur total d'achats" FontSize="18" FontWeight="Bold"/>
-                                <TextBlock Text="895,05€" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
-                            </WrapPanel>
-                            <WrapPanel Grid.Row="1" VerticalAlignment="Top" Margin="40,10,0,0">
-                                <TextBlock Text="Gain/Perte total" FontSize="18" FontWeight="Bold"/>
-                                <TextBlock Text="- 150,02€" Foreground="#FFB90000" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
-                            </WrapPanel>
-                        </Grid>
-                    </Border>
-                </DockPanel>
-                <!-- Box 3 -->
-                <Grid Grid.ColumnSpan="2" Grid.Row="1">
-                    <StackPanel>
-                        <TextBlock Text="Votre portfolio" FontSize="18" FontWeight="Bold" Padding="40,20,0,20"/>
-                        <Border Background="white" CornerRadius="15" Margin="40,0,40,0">
-                            <ListView Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="15,15,15,15">
+                            <ListView Grid.Row="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="15,15,15,15" Height="460">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="" Width="60"/>
-                                        <GridViewColumn Header="Nom" Width="140"/>
-                                        <GridViewColumn Header="Prix" Width="120"/>
-                                        <GridViewColumn Header="24h" Width="100"/>
-                                        <GridViewColumn Header="Balance" Width="120"/>
-                                        <GridViewColumn Header="Gains/Perte" Width="120"/>
-                                        <GridViewColumn Header="Allocations" Width="120"/>
+                                        <GridViewColumn Header="Nom" Width="90"/>
+                                        <GridViewColumn Header="Quantité" Width="90"/>
+                                        <GridViewColumn Header="Valeur a l'unité" Width="120"/>
+                                        <GridViewColumn Header="Prix" Width="90"/>
+                                        <GridViewColumn Header="Frais" Width="90"/>
+                                        <GridViewColumn Header="Total" Width="90"/>
+                                        <GridViewColumn Header="Date" Width="90"/>
+                                        <GridViewColumn Header="Exchange" Width="90"/>
                                         <!--DisplayMemberBinding="{Binding Name}-->
                                     </GridView>
                                 </ListView.View>
                             </ListView>
-                        </Border>
-                    </StackPanel>
-                </Grid>
+                            <Button Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,20,20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                                <Image Source="/IconAdd.png" Width="30"/>
+                            </Button>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+
+                <!-- ########## Repartition ########## -->
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="Répartition" FontSize="18" FontWeight="Bold" Padding="40,20,0,20" Margin="0,10,0,0"/>
+                </StackPanel>
+
+                <!-- ########## Watchlist ########## -->
+                <StackPanel Grid.Column="3">
+                    <TextBlock Text="Watchlist" FontSize="18" FontWeight="Bold" Padding="40,20,0,20" Margin="0,10,0,0"/>
+                </StackPanel>
+
             </Grid>
         </Border>
     </Grid>
