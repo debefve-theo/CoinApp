@@ -1,4 +1,6 @@
-﻿namespace LibraryCrypto
+﻿// Copyright © 2022 - Theo Debefve
+
+namespace LibraryCrypto
 {
     public class Crypto
     {
@@ -111,11 +113,5 @@
             return "\n\tId :\t" + Id + "\n\tName :\t" + Name + "\n\tSymbol :\t" + Symbol + "\n\tPrice :\t" + Price + "\n\tVolume 24h :\t" + Volume24h + "\n\t% 1 hour :\t" + Change1h + "\n\t% 1 day :\t" + Change1d + "\n\t% 1 week :\t" + Change1w + "\n\tMarket cap :\t" + Marketcap + "\n";
         }
         #endregion
-
-        public static int Hello()
-        {
-            int i = 4;
-            return i;
-        }
     }
 }
