@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WindowAddTransaction\WindowAddTransaction.csproj" />
     <ProjectReference Include="..\WindowSettings\WindowSettings.csproj" />
   </ItemGroup>
 

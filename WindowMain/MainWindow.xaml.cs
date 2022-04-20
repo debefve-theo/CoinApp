@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright © 2022 - Theo Debefve
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,20 +15,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WindowSettings;
+using WindowAddTransaction;
 
 namespace WindowMain
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        #region WINDOW
         private readonly WindowSettings.MainWindow WindowSettings = new();
+        private readonly WindowMain.AddTransactionWindow WindowMain = new();
         public MainWindow()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region BUTTON MENU
         private void BtnMenuHome_Click(object sender, RoutedEventArgs e)
         {
             ColHome.Width = new GridLength(1, GridUnitType.Star);
@@ -70,5 +74,15 @@ namespace WindowMain
         {
 
         }
+        #endregion
+
+        #region
+        private void BtnAddTransaction_Click(object sender, RoutedEventArgs e)
+        {
+            WindowMain.Show();
+            WindowMain.Focus();
+            WindowMain.Activate();
+        }
+        #endregion
     }
 }
