@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright © 2022 - Theo Debefve
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,15 +15,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WindowMain
+namespace View
 {
-    /// <summary>
-    /// Interaction logic for AddTransactionWindow.xaml
-    /// </summary>
-    public partial class AddTransactionWindow : Window
+    public partial class AddPortfolioWindow : Window
     {
         private bool CanClose { get; set; }
-        public AddTransactionWindow()
+        public AddPortfolioWindow()
         {
             InitializeComponent();
             CanClose = true;
@@ -36,11 +35,6 @@ namespace WindowMain
             e.Cancel = CanClose;
             base.OnClosing(e);
             Hide();
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

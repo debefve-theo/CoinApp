@@ -9,11 +9,15 @@
 
   <ItemGroup>
     <None Remove="back.png" />
+    <None Remove="IconAdd.png" />
+    <None Remove="IconEye.png" />
     <None Remove="logo.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="back.png" />
+    <Resource Include="IconAdd.png" />
+    <Resource Include="IconEye.png" />
     <Resource Include="logo.png" />
   </ItemGroup>
 

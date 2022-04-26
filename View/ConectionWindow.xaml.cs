@@ -15,24 +15,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WindowConection
+namespace View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class ConectionWindow : Window
     {
-        private readonly WindowConection.NewWindow WindowConection = new();
-        public MainWindow()
+        private readonly ConectionWindow _windowConection = new();
+        public ConectionWindow()
         {
             InitializeComponent();
         }
 
         private void ButtonNew_Click(object sender, RoutedEventArgs e)
         {
-            WindowConection.Show();
-            WindowConection.Focus();
-            WindowConection.Activate();
+            _windowConection.Show();
+            _windowConection.Focus();
+            _windowConection.Activate();
         }
     }
 }
+

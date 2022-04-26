@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,15 +16,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WindowConection
+namespace View
 {
-    /// <summary>
-    /// Interaction logic for NewWindow.xaml
-    /// </summary>
-    public partial class NewWindow : Window
+    public partial class AddTransactionWindow : Window
     {
         private bool CanClose { get; set; }
-        public NewWindow()
+        public AddTransactionWindow()
         {
             InitializeComponent();
             CanClose = true;
@@ -39,5 +37,21 @@ namespace WindowConection
             base.OnClosing(e);
             Hide();
         }
+
+        private void BtnOk_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+        }
+
+        private void ButtonAppliquer_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+        }
+
+        private void ButtonAnuler_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+        }
     }
 }
+

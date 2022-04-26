@@ -14,16 +14,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WindowSettings;
-using WindowAddTransaction;
+using System.IO;
 
-namespace WindowMain
+namespace View
 {
     public partial class MainWindow : Window
     {
         #region WINDOW
-        private readonly WindowSettings.MainWindow WindowSettings = new();
-        private readonly WindowMain.AddTransactionWindow WindowMain = new();
+        private readonly SettingsWindow _windowSettings = new();
+        private readonly AddTransactionWindow _windowMain = new();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -65,9 +65,9 @@ namespace WindowMain
 
         private void BtnMenuParametre_Click(object sender, RoutedEventArgs e)
         {
-            WindowSettings.Show();
-            WindowSettings.Focus();
-            WindowSettings.Activate();
+            _windowSettings.Show();
+            _windowSettings.Focus();
+            _windowSettings.Activate();
         }
 
         private void BtnMenuDeconexion_Click(object sender, RoutedEventArgs e)
@@ -79,9 +79,9 @@ namespace WindowMain
         #region
         private void BtnAddTransaction_Click(object sender, RoutedEventArgs e)
         {
-            WindowMain.Show();
-            WindowMain.Focus();
-            WindowMain.Activate();
+            _windowMain.Show();
+            _windowMain.Focus();
+            _windowMain.Activate();
         }
         #endregion
     }

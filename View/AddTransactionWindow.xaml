@@ -1,9 +1,13 @@
-﻿<Window x:Class="WindowMain.AddTransactionWindow"
+﻿<!-- New transaction window -->
+
+<!-- Copyright © 2022 - Theo Debefve -->
+
+<Window x:Class="View.AddTransactionWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WindowMain"
+        xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
         Title="&lt;oin - Nouvelle Transaction" Height="350" Width="550"
         ResizeMode="NoResize"
@@ -38,20 +42,26 @@
 
             <!-- Left -->
             <StackPanel Grid.Column="0">
-                <WrapPanel Grid.Row="1" HorizontalAlignment="Center" Margin="10,0,10,0" Width="230">
+                <WrapPanel HorizontalAlignment="Center" Margin="10,0,10,0" Width="230">
                     <Label Content="Type de transaction :" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,30" FontWeight="Normal"/>
                     <StackPanel HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="20,0,0,0">
-                        <RadioButton Content="Achat" Checked="RadioButton_Checked" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,10,0,0" />
-                        <RadioButton Content="Vente" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,10,0,0" />
+                        <RadioButton x:Name="RadioButtonA" Content="Achat" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,10,0,0" />
+                        <RadioButton x:Name="RadioButtonV" Content="Vente" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,10,0,0" />
                     </StackPanel>
                 </WrapPanel>
-                <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+                <WrapPanel HorizontalAlignment="Center">
                     <Label Content="Cryptomonaie :" FontWeight="Normal" Margin="10,0,0,0"/>
-                    <ComboBox Width="210" HorizontalAlignment="Left" Margin="10,0,10,10" Height="20.62"/>
+                    <ListBox x:Name="ListBoxC" Width="210" HorizontalAlignment="Left" Margin="10,0,10,10" Height="80">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text=""/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </WrapPanel>
-                <WrapPanel Grid.Row="3" HorizontalAlignment="Center">
+                <WrapPanel HorizontalAlignment="Center">
                     <Label Content="Date de la transaction :" FontWeight="Normal" Margin="10,0,0,0"/>
-                    <DatePicker  Width="210" HorizontalAlignment="Left" Margin="10,0,10,10"/>
+                    <DatePicker x:Name="DatePicker"  Width="210" HorizontalAlignment="Left" Margin="10,0,10,10"/>
                 </WrapPanel>
             </StackPanel>
 
@@ -59,15 +69,15 @@
             <StackPanel Grid.Column="1">
                 <WrapPanel HorizontalAlignment="Center">
                     <Label Content="Quantité :" Margin="10,0,0,0" FontWeight="Normal"/>
-                    <TextBox HorizontalAlignment="Stretch" Margin="10,0,10,10" VerticalAlignment="Stretch" Width="200" />
+                    <TextBox x:Name="TextBoxQuantity" HorizontalAlignment="Stretch" Margin="10,0,10,10" VerticalAlignment="Stretch" Width="200" />
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center">
                     <Label Content="Prix par token :" Margin="10,0,0,0" FontWeight="Normal"/>
-                    <TextBox Width="200" HorizontalAlignment="Stretch" Margin="10,0,10,10" />
+                    <TextBox x:Name="TextBoxPrice" Width="200" HorizontalAlignment="Stretch" Margin="10,0,10,10" />
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center" Width="220">
                     <Label Content="Frais :" Margin="10,0,0,0" FontWeight="Normal"/>
-                    <TextBox Width="200" Margin="10,0,10,10" HorizontalAlignment="Stretch" />
+                    <TextBox x:Name="TextBoxFees" Width="200" Margin="10,0,10,10" HorizontalAlignment="Stretch" />
                 </WrapPanel>
             </StackPanel>
 
@@ -76,8 +86,8 @@
         <!-- Action button -->
         <DockPanel LastChildFill="False" Background="#FFF0F0F0" DockPanel.Dock="Bottom" Height="50">
             <Button x:Name="ButtonAppliquer" Content="Appliquer" Margin="0,0,30,0"/>
-            <Button x:Name="ButtonAnuler" Content="Anuler" Margin="0,0,18,0"/>
-            <Button x:Name="BtnOk" Content="Ok" Margin="0,0,18,0"/>
+            <Button x:Name="ButtonAnuler" Content="Anuler" Margin="0,0,18,0" Click="ButtonAnuler_Click"/>
+            <Button x:Name="BtnOk" Content="Ok" Margin="0,0,18,0" Click="BtnOk_Click"/>
         </DockPanel>
     </DockPanel>
 </Window>
