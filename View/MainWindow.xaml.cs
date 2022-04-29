@@ -15,74 +15,53 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using Model;
+using ViewModel;
+using System.ComponentModel;
 
 namespace View
 {
     public partial class MainWindow : Window
     {
-        #region WINDOW
-        private readonly SettingsWindow _windowSettings = new();
-        private readonly AddTransactionWindow _windowMain = new();
+        private readonly AddPortfolioWindow _windowAdd = new();
+        private readonly ApplicationWindow _windowApplication = new();
 
+        private bool CanClose { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            CanClose = false;
         }
-        #endregion
-
-        #region BUTTON MENU
-        private void BtnMenuHome_Click(object sender, RoutedEventArgs e)
+        public void CloseWindow()
         {
-            ColHome.Width = new GridLength(1, GridUnitType.Star);
-            ColTransaction.Width = new GridLength(0);
-            ColRepartition.Width = new GridLength(0);
-            ColWatchlist.Width = new GridLength(0);
+            CanClose = false;
         }
 
-        private void BtnMenuTransaction_Click(object sender, RoutedEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
-            ColHome.Width = new GridLength(0);
-            ColTransaction.Width = new GridLength(1, GridUnitType.Star);
-            ColRepartition.Width = new GridLength(0);
-            ColWatchlist.Width = new GridLength(0);
+            e.Cancel = CanClose;
+            base.OnClosing(e);
+            Hide();
         }
 
-        private void BtnMenuRepartition_Click(object sender, RoutedEventArgs e)
+        private void ButtonNew_Click(object sender, RoutedEventArgs e)
         {
-            ColHome.Width = new GridLength(0);
-            ColTransaction.Width = new GridLength(0);
-            ColRepartition.Width = new GridLength(1, GridUnitType.Star);
-            ColWatchlist.Width = new GridLength(0);
+            _windowAdd.Show();
+            _windowAdd.Focus();
+            _windowAdd.Activate();
         }
 
-        private void BtnMenuWatchlist_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ColHome.Width = new GridLength(0);
-            ColTransaction.Width = new GridLength(0);
-            ColRepartition.Width = new GridLength(0);
-            ColWatchlist.Width = new GridLength(1, GridUnitType.Star);
+            this.Close();
         }
 
-        private void BtnMenuParametre_Click(object sender, RoutedEventArgs e)
+        private void ButtonConection_Click(object sender, RoutedEventArgs e)
         {
-            _windowSettings.Show();
-            _windowSettings.Focus();
-            _windowSettings.Activate();
+            _windowApplication.Show();
+            _windowApplication.Focus();
+            _windowApplication.Activate();
+            Hide();
         }
-
-        private void BtnMenuDeconexion_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        #endregion
-
-        #region
-        private void BtnAddTransaction_Click(object sender, RoutedEventArgs e)
-        {
-            _windowMain.Show();
-            _windowMain.Focus();
-            _windowMain.Activate();
-        }
-        #endregion
     }
 }

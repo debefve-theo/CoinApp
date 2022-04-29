@@ -11,7 +11,9 @@
         mc:Ignorable="d"
         Title="&lt;oin - Nouvelle Transaction" Height="350" Width="550"
         ResizeMode="NoResize"
-        FontFamily="Segoe UI">
+        FontFamily="Segoe UI"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner">
     <!-- Ressources -->
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
@@ -78,6 +80,10 @@
                 <WrapPanel HorizontalAlignment="Center" Width="220">
                     <Label Content="Frais :" Margin="10,0,0,0" FontWeight="Normal"/>
                     <TextBox x:Name="TextBoxFees" Width="200" Margin="10,0,10,10" HorizontalAlignment="Stretch" />
+                </WrapPanel>
+                <WrapPanel HorizontalAlignment="Center" Width="220">
+                    <Label Content="Exchange :" Margin="10,0,0,0" FontWeight="Normal"/>
+                    <TextBox x:Name="TextBoxExchange" Width="200" Margin="10,0,10,10" HorizontalAlignment="Stretch" />
                 </WrapPanel>
             </StackPanel>
 

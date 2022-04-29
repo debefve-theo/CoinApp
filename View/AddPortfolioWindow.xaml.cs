@@ -29,7 +29,6 @@ namespace View
         {
             CanClose = false;
         }
-
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = CanClose;

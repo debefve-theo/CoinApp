@@ -11,7 +11,9 @@
         mc:Ignorable="d"
         Title="&lt;oin - Nouveau Portfolio" Height="350" Width="500"
         ResizeMode="NoResize"
-        FontFamily="Segoe UI">
+        FontFamily="Segoe UI"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner">
     <!-- Ressources -->
     <Window.Resources>
         <Style TargetType="{x:Type Button}">

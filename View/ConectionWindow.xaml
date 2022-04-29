@@ -10,7 +10,9 @@
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
         Title="&lt;oin - Connexion" Height="500" Width="800"
-        FontFamily="Segoe UI" WindowStyle="SingleBorderWindow">
+        FontFamily="Segoe UI" WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <!-- Ressources -->
     <Window.Background>
         <ImageBrush ImageSource="/back.png"/>
@@ -21,6 +23,25 @@
             <Setter Property="Height" Value="25"/>
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#74b9ff" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
         </Style>
         <Style TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="14"/>
@@ -32,7 +53,11 @@
     <DockPanel>
         <!-- Logo -->
         <StackPanel DockPanel.Dock = "Top" Height="61">
-            <Image Width="120" HorizontalAlignment="Left" Margin="30,10,0,0" Source="/logo.png"/>
+            <DockPanel>
+                <Image Width="120" DockPanel.Dock="Left" HorizontalAlignment="Left" Margin="30,10,0,0" Source="/logo.png"/>
+                <!--<Image Width="20" HorizontalAlignment="Right" Source="/IconX.png" Height="20" Margin="0,0,20,0"/>-->
+                <Button FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Width="30" Height="30" HorizontalAlignment="Right" Margin="0,0,20,0" Foreground="White" Click="Button_Click" />
+            </DockPanel>
         </StackPanel>
         <!-- Conection container -->
         <Border DockPanel.Dock = "Top" Background="White" CornerRadius="15" HorizontalAlignment="Center">
@@ -49,18 +74,18 @@
                     </Grid.RowDefinitions>
 
                     <Label Content="Portfolio :" Grid.Column="0" Grid.Row="0" Margin="30,0,0,15"/>
-                    <ComboBox x:Name="ComboPortfolio" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Width="180" Margin="20,0,30,15" Height="20.62"/>
+                    <TextBox x:Name="FieldPortfolio" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Width="180" Margin="20,0,30,15" Height="20.62" BorderBrush="Black" BorderThickness="0,0,0,1"/>
                     <Label Content="Mot de passe :" Grid.Column="0" Grid.Row="1" Margin="30,0,0,0"/>
-                    <PasswordBox x:Name="FieldPassword" Width="180" Height="20.62" FontSize="14" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,30,0"/>
+                    <PasswordBox x:Name="FieldPassword" Width="180" Height="20.62" FontSize="14" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,30,0" BorderThickness="0,0,0,1" BorderBrush="Black"/>
                 </Grid>
-                <Button x:Name="ButtonConection" Content="Connexion" HorizontalAlignment="Center" Margin="0,35,0,25"/>
+                <Button x:Name="ButtonConection" Content="Connexion" HorizontalAlignment="Center" Margin="0,35,0,25" Background="#FF0984E3" Foreground="White" BorderThickness="0,0,0,0" Width="100" Height="30" Click="ButtonConection_Click"/>
             </StackPanel>
         </Border>
         <!-- New portfolio container -->
         <Border Width="365" VerticalAlignment="Top" Margin="0,30,0,0" DockPanel.Dock = "Top" Background="White" CornerRadius="15" HorizontalAlignment="Center">
             <WrapPanel HorizontalAlignment="Center" Margin="0,20,0,20">
-                <TextBlock Text="Ou créez un nouveau" FontSize="14" FontWeight="Bold" Margin="0,2,20,0"/>
-                <Button x:Name="ButtonNew" Content="Nouveau" Click="ButtonNew_Click"/>
+                <TextBlock Text="Ou créez un nouveau" FontSize="14" FontWeight="Bold" Margin="0,2,20,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button x:Name="ButtonNew" Content="Nouveau" Click="ButtonNew_Click" Width="80" Height="25" Background="#FF0984E3" Foreground="White" BorderThickness="0,0,0,0"/>
             </WrapPanel>
         </Border>
         <!-- Copyright -->
