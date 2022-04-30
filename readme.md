@@ -14,13 +14,13 @@ Sur la première page vous pouvez retrouver :
 + La valeur total d'achat ainssi que les Gains/Pertes actuel
 + Dans la zone du bas vous pouvez trouver le détails précis de chaque crypto que vous possédez.
 <!-- -->
-![Page Home](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/home.png)
+![Page Home](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/home.png)
 <!-- -->
 ### Transaction
 Sur la page de vous pouvez retrouver :
 + Une liste de toutes les trasaction que vous avez éfectuée avec tout les détails.
 <!-- -->
-![Page Transaction](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/transaction.png)
+![Page Transaction](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/transaction.png)
 <!-- -->
 Pour ajouter une transaction a la liste il faut les données suivante :
 + Savoir si c'est un achat ou une vente
@@ -30,43 +30,44 @@ Pour ajouter une transaction a la liste il faut les données suivante :
 + Le prix du token a ce moment la
 + Les frais
 <!-- -->
-![Page Transaction Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/transaction_add.png)
+![Page Transaction Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/transaction_add.png)
 <!-- -->
 ### Repartition
 Sur la page de vous pouvez retrouver :
 + Un graphique de la répartition de vos Crypto Monnaie.
 <!-- -->
-![Page Repartition](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/repartition.png)
+![Page Repartition](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/repartition.png)
 <!-- -->
 ### Watchlist
 Sur la page de vous pouvez retrouver :
 + Une liste de toutes les Crypto Monnaie que vous désirez suivre.
 <!-- -->
-![Page Watchlist](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/watchlist.png)
+![Page Watchlist](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/watchlist.png)
 <!-- -->
 Vous pouvez ajouter ou retirer une Crypto Monnaie de votre watchlist.
 <!-- -->
-![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/watchlist_add.png)
+![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/watchlist_add.png)
 <!-- -->
 ### Connexion
 Pour pouvoir accéder a l'application vous devrez entrer votre mot de passe.
 <!-- -->
-![Page Watchlist](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/login.png)
+![Page Watchlist](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/login.png)
 <!-- -->
 Vous pouvez créer plusieures portfolio avec des mot de passe différents.
 <!-- -->
-![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/login_add.png)
+![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/login_add.png)
 <!-- -->
+
 ### Paramètres
 Paramètres des fichiers de sauvegardes
 <!-- -->
-![Page Watchlist](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/parametre_fichier.png)
+![Page Watchlist](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/parametre_fichier.png)
 <!-- -->
 Modification du mot de passe
 <!-- -->
-![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/parametre_motdepassse.png)
+![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/parametre_motdepassse.png)
 <!-- -->
 Modification de la langue, de la devise et du thème
 <!-- -->
-![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/screenshot/parametre_affichage.png)
+![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/parametre_affichage.png)
 <!-- -->
