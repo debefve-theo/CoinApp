@@ -29,7 +29,7 @@ namespace View
         private readonly AddTransactionWindow _windowAddT = new();
         private readonly MainWindow _windowMain = new();*/
 
-        private bool Reduce = true;
+        private bool _reduce = true, _eye = true;
 
         public ApplicationWindow()
         {
@@ -112,29 +112,45 @@ namespace View
 
         private void BtnBarre_Click(object sender, RoutedEventArgs e)
         {
-            if (Reduce == true)
+            if (_reduce == true)
             {
                 ColMenu.Width = new GridLength(7, GridUnitType.Star);
                 ColContent.Width = new GridLength(93, GridUnitType.Star);
-                Reduce = false;
                 BtnMenuHomeTxt.Text = null;
                 BtnMenuTransactionTxt.Text = null;
                 BtnMenuRepartitionTxt.Text = null; 
                 BtnMenuWatchlistTxt.Text = null;
                 BtnMenuParametreTxt.Text = null;
                 BtnMenuDeconexionTxt.Text = null;
+                _reduce = false;
             }
             else
             {
                 ColMenu.Width = new GridLength(20, GridUnitType.Star);
                 ColContent.Width = new GridLength(80, GridUnitType.Star);
-                Reduce = true;
                 BtnMenuHomeTxt.Text = "Home";
                 BtnMenuTransactionTxt.Text = "Transaction";
                 BtnMenuRepartitionTxt.Text = "Répartition";
                 BtnMenuWatchlistTxt.Text = "Watchlist";
                 BtnMenuParametreTxt.Text = "Paramètres";
                 BtnMenuDeconexionTxt.Text = "Déconexion";
+                _reduce = true;
+            }
+        }
+
+        private void BtnEye_Click(object sender, RoutedEventArgs e)
+        {
+            if (_eye == true)
+            {
+                BitmapImage myImage = new BitmapImage(new Uri(@"Img/IconHiden.png", UriKind.Relative));
+                EyeImg.Source = myImage;
+                _eye = false;
+            }
+            else
+            {
+                BitmapImage myImage = new BitmapImage(new Uri(@"Img/IconView.png", UriKind.Relative));
+                EyeImg.Source = myImage;
+                _eye = true;
             }
         }
     }

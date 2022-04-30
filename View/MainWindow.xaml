@@ -13,10 +13,10 @@
         FontFamily="Segoe UI" WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Icon="/icon.png">
+        Icon="/Img/icon.png">
     <!-- Ressources -->
     <Window.Background>
-        <ImageBrush ImageSource="/back.png"/>
+        <ImageBrush ImageSource="/Img/back.png"/>
     </Window.Background>
     <Window.Resources>
         <Style TargetType="{x:Type Button}" x:Key="normalB">
@@ -32,7 +32,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#74b9ff" />
+                                <Setter Property="Background" Value="#2980b9" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -79,7 +79,7 @@
         <!-- Logo -->
         <StackPanel DockPanel.Dock = "Top" Height="61">
             <DockPanel>
-                <Image Width="120" DockPanel.Dock="Left" HorizontalAlignment="Left" Margin="30,10,0,0" Source="/logo.png"/>
+                <Image Width="120" DockPanel.Dock="Left" HorizontalAlignment="Left" Margin="30,10,0,0" Source="/Img/logo.png"/>
                 <Button FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Style="{StaticResource Close}" FontSize="20" FontWeight="Bold" Width="30" Height="30" HorizontalAlignment="Right" Margin="0,0,20,0" Foreground="Black" Click="Button_Click" />
             </DockPanel>
         </StackPanel>

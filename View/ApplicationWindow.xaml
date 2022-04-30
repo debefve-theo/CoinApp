@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
         Title="Home" Height="700" Width="1100"
-        FontFamily="Segoe UI" 
-        Icon="/icon.png">
+        FontFamily="Segoe UI"
+        Foreground="#2d3436"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Img/icon.png">
     <!-- Ressources -->
     <Window.Resources>
         <Style TargetType="{x:Type Button}" x:Key="MenuButton">
@@ -17,29 +19,15 @@
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="BorderThickness" Value="0,0,0,0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#74b9ff" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10" />
                 </Style>
             </Style.Resources>
         </Style>
-        <Style TargetType="{x:Type Button}" x:Key="MenuButtonRed" BasedOn="{StaticResource MenuButton}">
+        <Style TargetType="{x:Type Button}" x:Key="ButtonRed" BasedOn="{StaticResource MenuButton}">
             <Setter Property="Background" Value="#e74c3c"/>
-            <Setter Property="Foreground" Value="#dfe6e9"/>
+            <Setter Property="Foreground" Value="white"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -48,7 +36,43 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#c0392b" />
+                                <Setter Property="Background" Value="#d63031" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="ButtonBlue" BasedOn="{StaticResource MenuButton}">
+            <Setter Property="Background" Value="#74b9ff"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0984e3" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="ButtonGray" BasedOn="{StaticResource MenuButton}">
+            <Setter Property="Background" Value="#dfe6e9"/>
+            <Setter Property="Foreground" Value="#2d3436"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#b2bec3" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -57,7 +81,7 @@
         </Style>
         <Style TargetType="{x:Type Button}" x:Key="MenuButtonBarre" BasedOn="{StaticResource MenuButton}">
             <Setter Property="Background" Value="{x:Null}"/>
-            <Setter Property="Foreground" Value="black"/>
+            <Setter Property="Foreground" Value="#2d3436"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -84,25 +108,25 @@
         <StackPanel Grid.Column="0" Margin="10,20,10,20">
             <Button x:Name="BtnBarre" FontFamily="Segoe MDL2 Assets" Style="{StaticResource MenuButtonBarre}" Content="&#xE700;" FontSize="20" FontWeight="Bold" Width="30" Height="30" Margin="10,0,0,20" Foreground="Black" HorizontalAlignment="Left" Click="BtnBarre_Click" />
             <StackPanel VerticalAlignment="Top">
-                <Button x:Name="BtnMenuHome" Style="{StaticResource MenuButton}"  Margin="0,0,0,45" Click="BtnMenuHome_Click">
+                <Button x:Name="BtnMenuHome" Style="{StaticResource ButtonGray}"  Margin="0,0,0,45" Click="BtnMenuHome_Click">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xE80F;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,10,0"/>
                         <TextBlock x:Name="BtnMenuHomeTxt" Text="Home" FontFamily="Segoe UI" VerticalAlignment="Center" Margin="10,0,20,0"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="BtnMenuTransaction" Style="{StaticResource MenuButton}" Margin="0,0,0,20" Click="BtnMenuTransaction_Click">
+                <Button x:Name="BtnMenuTransaction" Style="{StaticResource ButtonGray}" Margin="0,0,0,20" Click="BtnMenuTransaction_Click">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xE755;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,10,0"/>
                         <TextBlock x:Name="BtnMenuTransactionTxt" Text="Transaction" FontFamily="Segoe UI" VerticalAlignment="Center" Margin="10,0,20,0"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="BtnMenuRepartition" Style="{StaticResource MenuButton}" Margin="0,0,0,45" Click="BtnMenuRepartition_Click">
+                <Button x:Name="BtnMenuRepartition" Style="{StaticResource ButtonGray}" Margin="0,0,0,45" Click="BtnMenuRepartition_Click">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xE9D2;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,10,0"/>
+                        <TextBlock Text="&#xEB05;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,10,0"/>
                         <TextBlock x:Name="BtnMenuRepartitionTxt" Text="Répartition" FontFamily="Segoe UI" VerticalAlignment="Center" Margin="10,0,20,0"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="BtnMenuWatchlist" Style="{StaticResource MenuButton}" Margin="0,0,0,170" Click="BtnMenuWatchlist_Click">
+                <Button x:Name="BtnMenuWatchlist" Style="{StaticResource ButtonGray}" Margin="0,0,0,170" Click="BtnMenuWatchlist_Click">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xE9D5;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,10,0"/>
                         <TextBlock x:Name="BtnMenuWatchlistTxt" Text="Watchlist" FontFamily="Segoe UI" VerticalAlignment="Center" Margin="10,0,20,0"/>
@@ -110,13 +134,13 @@
                 </Button>
             </StackPanel>
             <StackPanel VerticalAlignment="Bottom">
-                <Button x:Name="BtnMenuParametre" Style="{StaticResource MenuButton}" Margin="0,0,0,20" Click="BtnMenuParametre_Click">
+                <Button x:Name="BtnMenuParametre" Style="{StaticResource ButtonBlue}" Margin="0,0,0,20" Click="BtnMenuParametre_Click">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xE713;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,10,0"/>
                         <TextBlock x:Name="BtnMenuParametreTxt" Text="Paramètres" FontFamily="Segoe UI" VerticalAlignment="Center" Margin="10,0,20,0"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="BtnMenuDeconexion" Style="{StaticResource MenuButtonRed}" Click="BtnMenuDeconexion_Click">
+                <Button x:Name="BtnMenuDeconexion" Style="{StaticResource ButtonRed}" Click="BtnMenuDeconexion_Click">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xE72E;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,10,0"/>
                         <TextBlock x:Name="BtnMenuDeconexionTxt" Text="Déconexion" FontFamily="Segoe UI" VerticalAlignment="Center" Margin="10,0,20,0"/>
@@ -126,11 +150,11 @@
         </StackPanel>
 
         <!-- Main Box -->
-        <Border Grid.Column="1" Background="#dfe6e9" CornerRadius="15,0,0,15">
+        <Border Grid.Column="1" Background="#dfe6e9" CornerRadius="15,0,0,0">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="ColHome" Width="0"/>
-                    <ColumnDefinition x:Name="ColTransaction" Width="*"/>
+                    <ColumnDefinition x:Name="ColHome" Width="*"/>
+                    <ColumnDefinition x:Name="ColTransaction" Width="0"/>
                     <ColumnDefinition x:Name="ColRepartition" Width="0"/>
                     <ColumnDefinition x:Name="ColWatchlist" Width="0"/>
                 </Grid.ColumnDefinitions>
@@ -160,13 +184,13 @@
 
                                 <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="150">
                                     <TextBlock Text="Solde actuel" FontSize="18" FontWeight="Bold" Margin="0,15,0,0"/>
-                                    <Button Width="20" Height="20" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Margin="15,15,0,0" >
-                                        <Image Source="/IconEye.png"/>
+                                    <Button Style="{StaticResource MenuButtonBarre}" Width="20" Height="20" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Margin="15,15,0,0" Click="BtnEye_Click">
+                                        <Image x:Name="EyeImg" Source="/Img/IconView.png"/>
                                     </Button>
                                 </WrapPanel>
 
                                 <TextBlock Text="752,15 €" Grid.Row="1" Grid.Column="0" FontSize="36" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" Height="50" Margin="0,10,0,0"/>
-                                <Border Grid.Row="1" Grid.Column="1" Background="#FF23A708" CornerRadius="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,4" Height="40">
+                                <Border Grid.Row="1" Grid.Column="1" Background="#00b894" CornerRadius="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,4" Height="40">
                                     <TextBlock Text="+ 2,31%" FontSize="16" FontWeight="Black" Foreground="White" Padding="15,10,15,10" VerticalAlignment="Top"/>
                                 </Border>
                             </Grid>
@@ -187,7 +211,7 @@
                                 </WrapPanel>
                                 <WrapPanel Grid.Row="1" VerticalAlignment="Top" Margin="40,10,0,0">
                                     <TextBlock Text="Gain/Perte total" FontSize="18" FontWeight="Bold"/>
-                                    <TextBlock Text="- 150,02€" Foreground="#FFB90000" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
+                                    <TextBlock Text="- 150,02€" Foreground="#d63031" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
                                 </WrapPanel>
                             </Grid>
                         </Border>
@@ -243,7 +267,7 @@
                                 <RowDefinition Height="10*"/>
                             </Grid.RowDefinitions>
 
-                            <DataGrid AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="True" ItemsSource="{Binding Items}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Margin="15,15,15,15">
+                            <DataGrid AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="True" ItemsSource="{Binding Items}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#2d3436" Margin="15,15,15,15">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Crypto" Binding="{Binding Cryptocurrency.Symbol}"/>
                                     <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
@@ -256,7 +280,7 @@
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,20,20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnAddTransaction_Click">
-                                <Image Source="/IconAdd.png" Width="30"/>
+                                <Image Source="Img/IconAdd.png" Width="30"/>
                             </Button>
                         </Grid>
                     </Border>
@@ -301,7 +325,7 @@
                             </DataGrid>
 
                             <Button Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,20,20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnAddTransaction_Click">
-                                <Image Source="/IconAdd.png" Width="30"/>
+                                <Image Source="Img/IconAdd.png" Width="30"/>
                             </Button>
                         </Grid>
                     </Border>

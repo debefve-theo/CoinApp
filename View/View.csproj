@@ -11,7 +11,8 @@
     <None Remove="back.png" />
     <None Remove="icon.png" />
     <None Remove="IconAdd.png" />
-    <None Remove="IconEye.png" />
+    <None Remove="IconHiden.png" />
+    <None Remove="IconView.png" />
     <None Remove="IconX.png" />
     <None Remove="logo.png" />
   </ItemGroup>
@@ -25,12 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="back.png" />
-    <Resource Include="icon.png" />
-    <Resource Include="IconAdd.png" />
-    <Resource Include="IconEye.png" />
-    <Resource Include="IconX.png" />
-    <Resource Include="logo.png" />
+    <Resource Include="Img\back.png" />
+    <Resource Include="Img\icon.png" />
+    <Resource Include="Img\IconAdd.png" />
+    <Resource Include="Img\IconHiden.png" />
+    <Resource Include="Img\IconView.png" />
+    <Resource Include="Img\IconX.png" />
+    <Resource Include="Img\logo.png" />
   </ItemGroup>
 
 </Project>
