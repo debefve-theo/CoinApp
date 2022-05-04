@@ -1,8 +1,6 @@
 ﻿// Copyright © 2022 - Theo Debefve
 
-using System;
 using Model;
-using ViewModel;
 
 namespace ViewModel
 {

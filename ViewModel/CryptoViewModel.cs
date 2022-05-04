@@ -1,14 +1,12 @@
 ﻿// Copyright © 2022 - Theo Debefve
 
-using System;
 using Model;
-using ViewModel;
 
 namespace ViewModel
 {
     public class CryptoViewModel : ViewModelBase
     {
-        private Crypto _model;
+        private readonly Crypto _model;
 
         public CryptoViewModel(Crypto c)
         {
@@ -17,7 +15,7 @@ namespace ViewModel
 
         #region Get/Set
 
-        private double Id
+        public double Id
         {
             get => this._model.Id;
             set
@@ -27,7 +25,7 @@ namespace ViewModel
             }
         }
 
-        private string Name
+        public string Name
         {
             get => this._model.Name; 
             set
@@ -37,7 +35,7 @@ namespace ViewModel
             }
         }
 
-        private string Symbol
+        public string Symbol
         {
             get => this._model.Symbol; 
             set
@@ -47,7 +45,7 @@ namespace ViewModel
             }
         }
 
-        private double Price
+        public double Price
         {
             get => this._model.Price; 
             set
@@ -57,47 +55,47 @@ namespace ViewModel
             }
         }
 
-        private double Volume24h
+        public double Volume24H
         {
-            get => this._model.Volume24h; 
+            get => this._model.Volume24H; 
             set
             {
-                this._model.Volume24h = value;
-                this.NotifyPropertyChanged(nameof(Volume24h));
+                this._model.Volume24H = value;
+                this.NotifyPropertyChanged(nameof(Volume24H));
             }
         }
 
-        private double Change1h
+        public double Change1H
         {
-            get => this._model.Change1h; 
+            get => this._model.Change1H; 
             set
             {
-                this._model.Change1h = value;
-                this.NotifyPropertyChanged(nameof(Change1h));
+                this._model.Change1H = value;
+                this.NotifyPropertyChanged(nameof(Change1H));
             }
         }
 
-        private double Change1d
+        public double Change1D
         {
-            get => this._model.Change1d; 
+            get => this._model.Change1D; 
             set
             {
-                this._model.Change1d = value;
-                this.NotifyPropertyChanged(nameof(Change1d));
+                this._model.Change1D = value;
+                this.NotifyPropertyChanged(nameof(Change1D));
             }
         }
 
-        private double Change1w
+        public double Change1W
         {
-            get => this._model.Change1w; 
+            get => this._model.Change1W; 
             set
             {
-                this._model.Change1w = value;
-                this.NotifyPropertyChanged(nameof(Change1w));
+                this._model.Change1W = value;
+                this.NotifyPropertyChanged(nameof(Change1W));
             }
         }
 
-        private double Marketcap
+        public double Marketcap
         {
             get => this._model.Marketcap;
             set
@@ -106,6 +104,11 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(Marketcap));
             }
         }
+
+        #endregion
+
+        #region Methods
+
 
         #endregion
     }
