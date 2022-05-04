@@ -10,15 +10,19 @@
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
         Title="&lt;oin - Connexion" Height="500" Width="800"
-        FontFamily="Segoe UI" WindowStyle="None"
+        FontFamily="Segoe UI"
+        Foreground="#2d3436"
+        WindowStyle="None"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Icon="/Img/icon.png"
+        MouseDown="Border_MousseDown">
     <!-- Ressources -->
     <Window.Background>
-        <ImageBrush ImageSource="/back.png"/>
+        <ImageBrush ImageSource="/Img/back.png"/>
     </Window.Background>
     <Window.Resources>
-        <Style TargetType="{x:Type Button}">
+        <Style TargetType="{x:Type Button}" x:Key="normalB">
             <Setter Property="Width" Value="80"/>
             <Setter Property="Height" Value="25"/>
             <Setter Property="FontSize" Value="12"/>
@@ -31,7 +35,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#74b9ff" />
+                                <Setter Property="Background" Value="#2980b9" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -48,15 +52,38 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
+        <Style TargetType="{x:Type Button}" x:Key="Close">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#d63031" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
     </Window.Resources>
     <!-- Window -->
-    <DockPanel>
+    <DockPanel >
         <!-- Logo -->
         <StackPanel DockPanel.Dock = "Top" Height="61">
             <DockPanel>
-                <Image Width="120" DockPanel.Dock="Left" HorizontalAlignment="Left" Margin="30,10,0,0" Source="/logo.png"/>
-                <!--<Image Width="20" HorizontalAlignment="Right" Source="/IconX.png" Height="20" Margin="0,0,20,0"/>-->
-                <Button FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Width="30" Height="30" HorizontalAlignment="Right" Margin="0,0,20,0" Foreground="White" Click="Button_Click" />
+                <Image Width="120" DockPanel.Dock="Left" HorizontalAlignment="Left" Margin="30,10,0,0" Source="/Img/logo.png"/>
+                <Button FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Style="{StaticResource Close}" FontSize="20" FontWeight="Bold" Width="30" Height="30" HorizontalAlignment="Right" Margin="0,0,20,0" Foreground="Black" Click="Button_Click" />
             </DockPanel>
         </StackPanel>
         <!-- Conection container -->
@@ -78,14 +105,14 @@
                     <Label Content="Mot de passe :" Grid.Column="0" Grid.Row="1" Margin="30,0,0,0"/>
                     <PasswordBox x:Name="FieldPassword" Width="180" Height="20.62" FontSize="14" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,30,0" BorderThickness="0,0,0,1" BorderBrush="Black"/>
                 </Grid>
-                <Button x:Name="ButtonConection" Content="Connexion" HorizontalAlignment="Center" Margin="0,35,0,25" Background="#FF0984E3" Foreground="White" BorderThickness="0,0,0,0" Width="100" Height="30" Click="ButtonConection_Click"/>
+                <Button x:Name="ButtonConection" Style="{StaticResource normalB}" Content="Connexion" HorizontalAlignment="Center" Margin="0,35,0,25" Background="#FF0984E3" Foreground="White" BorderThickness="0,0,0,0" Width="100" Height="30" Click="ButtonConection_Click"/>
             </StackPanel>
         </Border>
         <!-- New portfolio container -->
         <Border Width="365" VerticalAlignment="Top" Margin="0,30,0,0" DockPanel.Dock = "Top" Background="White" CornerRadius="15" HorizontalAlignment="Center">
             <WrapPanel HorizontalAlignment="Center" Margin="0,20,0,20">
                 <TextBlock Text="Ou créez un nouveau" FontSize="14" FontWeight="Bold" Margin="0,2,20,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Button x:Name="ButtonNew" Content="Nouveau" Click="ButtonNew_Click" Width="80" Height="25" Background="#FF0984E3" Foreground="White" BorderThickness="0,0,0,0"/>
+                <Button x:Name="ButtonNew" Style="{StaticResource normalB}" Content="Nouveau" Click="ButtonNew_Click" Width="80" Height="25" Background="#FF0984E3" Foreground="White" BorderThickness="0,0,0,0"/>
             </WrapPanel>
         </Border>
         <!-- Copyright -->

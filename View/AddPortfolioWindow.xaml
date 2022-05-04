@@ -12,15 +12,57 @@
         Title="&lt;oin - Nouveau Portfolio" Height="350" Width="500"
         ResizeMode="NoResize"
         FontFamily="Segoe UI"
+        Foreground="#2d3436"
         ShowInTaskbar="False"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterScreen">
     <!-- Ressources -->
     <Window.Resources>
-        <Style TargetType="{x:Type Button}">
+        <Style TargetType="{x:Type Button}"  x:Key="ButtonBase">
             <Setter Property="Width" Value="80"/>
             <Setter Property="Height" Value="25"/>
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="DockPanel.Dock" Value="Right"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="ButtonBlue" BasedOn="{StaticResource ButtonBase}">
+            <Setter Property="Background" Value="#74b9ff"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0984e3" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="ButtonRed" BasedOn="{StaticResource ButtonBase}">
+            <Setter Property="Background" Value="#e74c3c"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#d63031" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="14"/>
@@ -37,18 +79,17 @@
     <DockPanel LastChildFill="False">
         <!-- Fields -->
         <StackPanel DockPanel.Dock="Top" Margin="20,20,0,0">
-            <TextBlock Text="Créer un nouveau portfolio" FontSize="24" FontWeight="Bold" Margin="0,0,0,13"/>
-            <Label Content="Nom :"/>
+            <Label Content="Nom :" FontWeight="Normal"/>
             <TextBox x:Name="FieldPortfolio" Margin="5,0,0,13" HorizontalAlignment="Left" Width="180" FontSize="14"/>
-            <Label Content="Mot de passe :"/>
+            <Label Content="Mot de passe :" FontWeight="Normal"/>
             <PasswordBox/>
-            <Label Content="Confirmer le mot de passe :"/>
+            <Label Content="Confirmer le mot de passe :" FontWeight="Normal"/>
             <PasswordBox/>
         </StackPanel>
         <!-- Action button -->
-        <DockPanel LastChildFill="False" Background="#FFF0F0F0" DockPanel.Dock="Bottom" Height="50">
-            <Button x:Name="ButtonAppliquer" Content="Appliquer" Margin="0,0,30,0"/>
-            <Button x:Name="ButtonAnuler" Content="Anuler" Margin="0,0,18,0"/>
+        <DockPanel LastChildFill="False" Background="#FFDFE6E9" DockPanel.Dock="Bottom" Height="50">
+            <Button x:Name="BtnAnuler" Style="{StaticResource ButtonRed}" Content="Anuler" Margin="0,0,30,0"/>
+            <Button x:Name="BtnAppliquer" Style="{StaticResource ButtonBlue}" Content="Appliquer" Margin="0,0,18,0"/>
         </DockPanel>
     </DockPanel>
 </Window>
