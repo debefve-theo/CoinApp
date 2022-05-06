@@ -1,7 +1,6 @@
 ﻿// Copyright © 2022 - Theo Debefve
 
 using System.Windows;
-using System.ComponentModel;
 using ViewModel;
 
 namespace View

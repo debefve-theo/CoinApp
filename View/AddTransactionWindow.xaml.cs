@@ -4,8 +4,6 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using Model;
 using ViewModel;
 
@@ -13,41 +11,25 @@ namespace View
 {
     public partial class AddTransactionWindow : Window
     {
-        public ConectionWindowViewModel ViewModel { get; set; }
+        public MainWindowViewModel ViewModel { get; set; }
 
-        public delegate void Notify(object sender, TransactionEventArgs e);
-        public event Notify AddTransactionCompleted;
-
-        public AddTransactionWindow()
+        public AddTransactionWindow(MainWindowViewModel vm)
         {
             InitializeComponent();
-        }
 
-        private void OnAddTransactionChange(object sender, TransactionEventArgs e)
-        {
-            AddTransactionCompleted(this, e);
-        }
-
-        private void BtnAppliquer_Click(object sender, RoutedEventArgs e)
-        {
-
+            ViewModel = vm;
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (AddTransactionCompleted != null)
-                {
-                    OnAddTransactionChange(this, new TransactionEventArgs(GetData()));
-                }
+            ViewModel.ItemsT.Add(GetData());
+            Close();
+        }
 
-                Close();
-            }
-            catch
-            {
-                System.Windows.MessageBox.Show("Erreur");
-            }
+        private void BtnAppliquer_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.ItemsT.Add(GetData());
+            CleanField();
         }
 
         private void BtnAnuler_Click(object sender, RoutedEventArgs e)
@@ -57,9 +39,7 @@ namespace View
 
         private TransactionViewModel GetData()
         {
-            TransactionViewModel CurrentTransaction;
-
-            CurrentTransaction = new TransactionViewModel(new Transaction()
+            TransactionViewModel currentTransaction = new TransactionViewModel(new Transaction()
             {
                 Id = 1000,
                 Av = (bool)RadioButtonV.IsChecked,
@@ -82,9 +62,19 @@ namespace View
                 Exchange = TextBoxExchange.Text
             });
 
-            return CurrentTransaction;
+            return currentTransaction;
         }
 
+        private void CleanField()
+        {
+            RadioButtonV.IsChecked = true;
+            // Crypto
+            DatePicker.DisplayDate = DateTime.Now;
+            TextBoxQuantity.Text = "";
+            TextBoxPrice.Text = "";
+            TextBoxFees.Text = "";
+            TextBoxExchange.Text = "";
+        }
     }
 }
 

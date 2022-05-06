@@ -2,8 +2,6 @@
 using System.Windows;
 using System.Windows.Media.Imaging;
 using ViewModel;
-using System.ComponentModel;
-using System.Windows.Controls;
 
 namespace View
 {
@@ -16,22 +14,10 @@ namespace View
         public MainWindow()
         {
             InitializeComponent();
-
             ViewModel = new MainWindowViewModel();
-
             this.DataContext = ViewModel;
-
-            //_windowAddT.AddTransactionCompleted += AddTransactionWindow_Completed;
         }
 
-        private void AddTransactionWindow_Completed(object sender, TransactionEventArgs e)
-        {
-            if (sender is AddTransactionWindow)
-            {
-                ViewModel.ItemsT.Add(e.Transaction);
-            }
-        }
-        
         #region BUTTON MENU
         private void BtnMenuHome_Click(object sender, RoutedEventArgs e)
         {
@@ -73,7 +59,6 @@ namespace View
 
         private void BtnMenuDeconexion_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
             ConectionWindow windowConection = new();
             windowConection.Show();
             Close();
@@ -83,7 +68,7 @@ namespace View
         #region BUTTON OTHER
         private void BtnAddTransaction_Click(object sender, RoutedEventArgs e)
         {
-            AddTransactionWindow windowAddT = new();
+            AddTransactionWindow windowAddT = new(ViewModel);
             windowAddT.ShowDialog();
         }
 
