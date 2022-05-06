@@ -13,9 +13,7 @@ namespace View
 {
     public partial class AddTransactionWindow : Window
     {
-        private bool CanClose { get; set; }
-
-        public MainWindowViewModel ViewModel { get; set; }
+        public ConectionWindowViewModel ViewModel { get; set; }
 
         public delegate void Notify(object sender, TransactionEventArgs e);
         public event Notify AddTransactionCompleted;
@@ -23,19 +21,6 @@ namespace View
         public AddTransactionWindow()
         {
             InitializeComponent();
-
-            CanClose = true;
-        }
-        public void CloseWindow()
-        {
-            CanClose = false;
-        }
-
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            e.Cancel = CanClose;
-            base.OnClosing(e);
-            Hide();
         }
 
         private void OnAddTransactionChange(object sender, TransactionEventArgs e)
@@ -57,7 +42,7 @@ namespace View
                     OnAddTransactionChange(this, new TransactionEventArgs(GetData()));
                 }
 
-                Hide();
+                Close();
             }
             catch
             {
@@ -67,7 +52,7 @@ namespace View
 
         private void BtnAnuler_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
+            Close();
         }
 
         private TransactionViewModel GetData()

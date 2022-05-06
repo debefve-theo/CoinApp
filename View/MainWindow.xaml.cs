@@ -9,13 +9,7 @@ namespace View
 {
     public partial class MainWindow : Window
     {
-        private bool CanClose { get; set; }
-
         public MainWindowViewModel ViewModel { get; set; }
-
-        private readonly ConectionWindow _windowConection = new();
-        private readonly SettingsWindow _windowSettings = new();
-        private readonly AddTransactionWindow _windowAddT = new();
 
         private bool _reduce = true, _eye = true;
 
@@ -27,7 +21,7 @@ namespace View
 
             this.DataContext = ViewModel;
 
-            _windowAddT.AddTransactionCompleted += AddTransactionWindow_Completed;
+            //_windowAddT.AddTransactionCompleted += AddTransactionWindow_Completed;
         }
 
         private void AddTransactionWindow_Completed(object sender, TransactionEventArgs e)
@@ -38,23 +32,6 @@ namespace View
             }
         }
         
-        private void Dispose()
-        {
-            _windowAddT.AddTransactionCompleted -= AddTransactionWindow_Completed;
-        }
-
-        protected override void OnClosed(EventArgs e)
-        {
-            _windowAddT.CloseWindow();
-            _windowSettings.CloseWindow();
-            _windowConection.CloseWindow();
-            Dispose();
-            _windowAddT.Close();
-            _windowSettings.Close();
-            _windowConection.Close();
-            base.OnClosed(e);
-        }
-
         #region BUTTON MENU
         private void BtnMenuHome_Click(object sender, RoutedEventArgs e)
         {
@@ -90,29 +67,24 @@ namespace View
 
         private void BtnMenuParametre_Click(object sender, RoutedEventArgs e)
         {
-            _windowSettings.ShowDialog();
-            _windowSettings.Focus();
-            _windowSettings.Activate();
-        }
+            SettingsWindow windowSettings = new();
+            windowSettings.ShowDialog();
+    }
 
         private void BtnMenuDeconexion_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            _windowConection.Show();
-            _windowConection.Focus();
-            _windowConection.Activate();
+            ConectionWindow windowConection = new();
+            windowConection.Show();
+            Close();
         }
         #endregion
 
         #region BUTTON OTHER
         private void BtnAddTransaction_Click(object sender, RoutedEventArgs e)
         {
-            //TransactionViewModel t = _windowAddT.DataIci;
-            //ViewModel.ItemsT.Add(t);
-
-            _windowAddT.ShowDialog();
-            _windowAddT.Focus();
-            _windowAddT.Activate();
+            AddTransactionWindow windowAddT = new();
+            windowAddT.ShowDialog();
         }
 
         #endregion
@@ -159,13 +131,6 @@ namespace View
                 EyeImg.Source = myImage;
                 _eye = true;
             }
-        }
-
-        private void DG1_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            _windowAddT.ShowDialog();
-            _windowAddT.Focus();
-            _windowAddT.Activate();
         }
     }
 }

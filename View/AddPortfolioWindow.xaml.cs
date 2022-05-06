@@ -2,26 +2,66 @@
 
 using System.ComponentModel;
 using System.Windows;
+using Model;
+using ViewModel;
 
 namespace View
 {
     public partial class AddPortfolioWindow : Window
     {
-        private bool CanClose { get; set; }
-        public AddPortfolioWindow()
+        public ConectionWindowViewModel ViewModel { get; set; }
+
+        public AddPortfolioWindow(ConectionWindowViewModel vm)
         {
             InitializeComponent();
-            CanClose = true;
+            ViewModel = vm;
         }
-        public void CloseWindow()
+
+        private bool VerifyNewUser(string username, string password)
         {
-            CanClose = false;
+            foreach (UserViewModel item in ViewModel.ItemsU)
+            {
+                if (item.UserName == username)
+                {
+                    return false;
+                }
+
+                if (username == null || password == null)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
-        protected override void OnClosing(CancelEventArgs e)
+
+        private void BtnAppliquer_Click(object sender, RoutedEventArgs e)
         {
-            e.Cancel = CanClose;
-            base.OnClosing(e);
-            Hide();
+            string usr = FieldUsr.Text;
+            string pswd = FieldPswd.Password;
+
+            if (VerifyNewUser(usr, pswd))
+            {
+                UserViewModel U = new UserViewModel(new User()
+                {
+                    Id = 999,
+                    UserName = usr,
+                    Password = pswd
+                });
+
+                ViewModel.ItemsU.Add(U);
+
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("User or password incorect!");
+            }
+        }
+
+        private void BtnAnuler_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

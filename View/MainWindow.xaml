@@ -290,7 +290,7 @@
                                 <RowDefinition Height="10*"/>
                             </Grid.RowDefinitions>
 
-                            <DataGrid x:Name="DataGridTransaction" GridLinesVisibility="Horizontal"  AutoGenerateColumns="False" SelectedCellsChanged="DG1_SelectedCellsChanged" Grid.Row="0" IsReadOnly="True" ItemsSource="{Binding ItemsT}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#2d3436" Margin="15,15,15,15">
+                            <DataGrid x:Name="DataGridTransaction" GridLinesVisibility="Horizontal"  AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="True" ItemsSource="{Binding ItemsT}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#2d3436" Margin="15,15,15,15">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Crypto" Binding="{Binding Cryptocurrency.Symbol}"/>
                                     <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>

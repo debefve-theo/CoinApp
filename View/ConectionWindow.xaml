@@ -101,9 +101,9 @@
                     </Grid.RowDefinitions>
 
                     <Label Content="Portfolio :" Grid.Column="0" Grid.Row="0" Margin="30,0,0,15"/>
-                    <TextBox x:Name="FieldPortfolio" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Width="180" Margin="20,0,30,15" Height="20.62" BorderBrush="Black" BorderThickness="0,0,0,1"/>
+                    <TextBox x:Name="FieldUsr" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Width="180" Margin="20,0,30,15" Height="20.62" BorderBrush="Black" BorderThickness="0,0,0,1"/>
                     <Label Content="Mot de passe :" Grid.Column="0" Grid.Row="1" Margin="30,0,0,0"/>
-                    <PasswordBox x:Name="FieldPassword" Width="180" Height="20.62" FontSize="14" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,30,0" BorderThickness="0,0,0,1" BorderBrush="Black"/>
+                    <PasswordBox x:Name="FieldPswd" Width="180" Height="20.62" FontSize="14" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,30,0" BorderThickness="0,0,0,1" BorderBrush="Black"/>
                 </Grid>
                 <Button x:Name="ButtonConection" Style="{StaticResource normalB}" Content="Connexion" HorizontalAlignment="Center" Margin="0,35,0,25" Background="#FF0984E3" Foreground="White" BorderThickness="0,0,0,0" Width="100" Height="30" Click="ButtonConection_Click"/>
             </StackPanel>

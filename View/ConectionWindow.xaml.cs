@@ -2,29 +2,18 @@
 
 using System.Windows;
 using System.ComponentModel;
+using ViewModel;
 
 namespace View
 {
     public partial class ConectionWindow : Window
     {
-        private readonly AddPortfolioWindow _windowAdd = new();
-
-        private bool CanClose { get; set; }
+        public ConectionWindowViewModel ViewModel { get; set; }
         public ConectionWindow()
         {
             InitializeComponent();
-            CanClose = false;
-        }
-        public void CloseWindow()
-        {
-            CanClose = false;
-        }
 
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            e.Cancel = CanClose;
-            base.OnClosing(e);
-            Hide();
+            ViewModel = new ConectionWindowViewModel();
         }
 
         private void Border_MousseDown(object sender, RoutedEventArgs e)
@@ -32,21 +21,48 @@ namespace View
             DragMove();
         }
 
-        private void ButtonNew_Click(object sender, RoutedEventArgs e)
+        private bool VerifyUser(string username, string password)
         {
-            _windowAdd.Show();
-            _windowAdd.Focus();
-            _windowAdd.Activate();
-        }
+            foreach (UserViewModel item in ViewModel.ItemsU)
+            {
+                if (item.UserName == username)
+                {
+                    if (item.Password == password)
+                    {
+                        return true;
+                    }
+                }
+            }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
+            return false;
         }
 
         private void ButtonConection_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (VerifyUser(FieldUsr.Text, FieldPswd.Password))
+            {
+                FieldUsr.Text = "";
+                FieldPswd.Password = "";
+
+                MainWindow windowMain = new();
+                windowMain.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("User or password incorect!");
+            }
+        }
+
+        private void ButtonNew_Click(object sender, RoutedEventArgs e)
+        {
+            AddPortfolioWindow windowAdd = new(ViewModel);
+            windowAdd.ShowDialog();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

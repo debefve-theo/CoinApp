@@ -80,16 +80,16 @@
         <!-- Fields -->
         <StackPanel DockPanel.Dock="Top" Margin="20,20,0,0">
             <Label Content="Nom :" FontWeight="Normal"/>
-            <TextBox x:Name="FieldPortfolio" Margin="5,0,0,13" HorizontalAlignment="Left" Width="180" FontSize="14"/>
+            <TextBox x:Name="FieldUsr" Margin="5,0,0,13" HorizontalAlignment="Left" Width="180" FontSize="14"/>
             <Label Content="Mot de passe :" FontWeight="Normal"/>
-            <PasswordBox/>
+            <PasswordBox x:Name="FieldPswd"/>
             <Label Content="Confirmer le mot de passe :" FontWeight="Normal"/>
             <PasswordBox/>
         </StackPanel>
         <!-- Action button -->
         <DockPanel LastChildFill="False" Background="#FFDFE6E9" DockPanel.Dock="Bottom" Height="50">
-            <Button x:Name="BtnAnuler" Style="{StaticResource ButtonRed}" Content="Anuler" Margin="0,0,30,0"/>
-            <Button x:Name="BtnAppliquer" Style="{StaticResource ButtonBlue}" Content="Appliquer" Margin="0,0,18,0"/>
+            <Button x:Name="BtnAnuler" Style="{StaticResource ButtonRed}" Content="Anuler" Margin="0,0,30,0" Click="BtnAnuler_Click"/>
+            <Button x:Name="BtnAppliquer" Style="{StaticResource ButtonBlue}" Content="Appliquer" Margin="0,0,18,0" Click="BtnAppliquer_Click"/>
         </DockPanel>
     </DockPanel>
 </Window>
