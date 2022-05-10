@@ -1,8 +1,9 @@
 ﻿using Model;
 using System.Collections.ObjectModel;
 using ClassLibrary;
+using Newtonsoft.Json;
 
- namespace ViewModel
+namespace ViewModel
 {
     public class MainWindowViewModel : ViewModelBase
     {
@@ -14,6 +15,12 @@ using ClassLibrary;
         public MainWindowViewModel()
         {
             ItemsC = GetCryptoList();
+
+            // Verif exist fichier + creation ***
+            if (!File.Exists("./DataTransaction.json"))
+            {
+                File.Create("./DataTransaction.json");
+            }
 
             CurrentTransaction = new TransactionViewModel(new Transaction()
             {
@@ -116,6 +123,22 @@ using ClassLibrary;
             }
 
             return list;
+        }
+        /*
+        private void getCryptoName()
+        {
+
+        }*/
+
+        public void Save()
+        {
+            string jsonS = JsonConvert.SerializeObject(CurrentTransaction, Formatting.Indented);
+
+            //int i = 1;
+
+            var jsonD = JsonConvert.DeserializeObject(jsonS);
+
+            //int j = 1;
         }
     }
 }

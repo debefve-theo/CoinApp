@@ -12,5 +12,15 @@ namespace Model
         public double Fees { get; set; }
         public DateTime Date { get; set; }
         public string? Exchange { get; set; }
+
+        public double Price
+        {
+            get { return (PricePerToken * Quantity); }
+        }
+
+        public double Total
+        {
+            get { return (Price + Fees);  }
+        }
     }
 }

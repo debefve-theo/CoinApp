@@ -52,6 +52,8 @@ namespace ViewModel
             {
                 this._model.Quantity = value;
                 this.NotifyPropertyChanged(nameof(Quantity));
+                this.NotifyPropertyChanged(nameof(Price));
+                this.NotifyPropertyChanged(nameof(Total));
             }
         }
 
@@ -62,6 +64,8 @@ namespace ViewModel
             {
                 this._model.PricePerToken = value;
                 this.NotifyPropertyChanged(nameof(PricePerToken));
+                this.NotifyPropertyChanged(nameof(Price));
+                this.NotifyPropertyChanged(nameof(Total));
             }
         }
 
@@ -72,6 +76,7 @@ namespace ViewModel
             {
                 this._model.Fees = value;
                 this.NotifyPropertyChanged(nameof(Fees));
+                this.NotifyPropertyChanged(nameof(Total));
             }
         }
 
@@ -93,6 +98,16 @@ namespace ViewModel
                 this._model.Exchange = value;
                 this.NotifyPropertyChanged(nameof(Exchange));
             }
+        }
+
+        public double Price
+        {
+            get { return _model.Price; }
+        }
+
+        public double Total
+        {
+            get { return _model.Total; }
         }
 
         #endregion

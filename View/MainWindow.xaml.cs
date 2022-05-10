@@ -59,6 +59,7 @@ namespace View
 
         private void BtnMenuDeconexion_Click(object sender, RoutedEventArgs e)
         {
+            ViewModel.Save();
             ConectionWindow windowConection = new();
             windowConection.Show();
             Close();
@@ -109,12 +110,22 @@ namespace View
                 BitmapImage myImage = new BitmapImage(new Uri(@"Img/IconHiden.png", UriKind.Relative));
                 EyeImg.Source = myImage;
                 _eye = false;
+
+                BoxNow.Text = "***,** €";
+                BoxNowPercent.Text = "**,**%";
+                BoxTotal.Text = "***,**€";
+                BoxTotalLose.Text = "***,**€";
             }
             else
             {
                 BitmapImage myImage = new BitmapImage(new Uri(@"Img/IconView.png", UriKind.Relative));
                 EyeImg.Source = myImage;
                 _eye = true;
+
+                BoxNow.Text = "752,15 €";
+                BoxNowPercent.Text = "+ 2,31%";
+                BoxTotal.Text = "895,05€";
+                BoxTotalLose.Text = "- 150,02€";
             }
         }
     }

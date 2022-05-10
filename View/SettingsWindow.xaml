@@ -9,7 +9,6 @@
         ResizeMode="NoResize"
         FontFamily="Segoe UI"
         Foreground="#2d3436"
-        ShowInTaskbar="False"
         WindowStartupLocation="CenterScreen">
     <!-- Ressources -->
     <Window.Resources>

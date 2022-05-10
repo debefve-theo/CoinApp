@@ -9,11 +9,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View" xmlns:viewmodel="clr-namespace:ViewModel;assembly=ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="&lt;oin - Nouvelle Transaction" Height="400" Width="600"
+        Title="&lt;oin - Nouvelle Transaction" Height="375" Width="600"
         ResizeMode="NoResize"
         FontFamily="Segoe UI"
         Foreground="#2d3436"
-        ShowInTaskbar="False"
         WindowStartupLocation="CenterScreen">
     <!-- Ressources -->
     <Window.Resources>
@@ -95,11 +94,19 @@
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center">
                     <Label Content="Cryptomonaie :" FontWeight="Normal" Margin="10,0,0,0"/>
-                    <ComboBox x:Name="ListBoxC" ItemsSource="{Binding ItemsC}" Width="210" HorizontalAlignment="Left" Margin="10,0,10,10"/>
+                    <ComboBox x:Name="FieldCrypto" ItemsSource="{Binding ItemsC}" DisplayMemberPath="Name" Width="210" HorizontalAlignment="Left" Margin="10,0,10,10" Height="24"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center">
                     <Label Content="Date de la transaction :" FontWeight="Normal" Margin="10,0,0,0"/>
-                    <DatePicker x:Name="DatePicker"  Width="210" HorizontalAlignment="Left" Margin="10,0,10,10"/>
+                    <DatePicker x:Name="FieldDate"  Width="210" HorizontalAlignment="Left" Margin="10,0,10,10"/>
+                </WrapPanel>
+                <WrapPanel HorizontalAlignment="Center">
+                    <Label Content="Heure de la transaction :" FontWeight="Normal" Margin="10,0,0,0"/>
+                    <StackPanel Width="210" HorizontalAlignment="Left" Margin="10,0,10,10" Orientation="Horizontal">
+                        <TextBox x:Name="FieldHour" Width="40" Margin="0,0,5,5"/>
+                        <TextBlock Text="h" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBox x:Name="FieldMin" Width="40" Margin="5,0,0,5"/>
+                    </StackPanel>
                 </WrapPanel>
             </StackPanel>
 

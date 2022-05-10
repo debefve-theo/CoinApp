@@ -6,101 +6,101 @@ namespace ViewModel
 {
     public class CryptoViewModel : ViewModelBase
     {
-        private readonly Crypto _model;
+        public Crypto Model { get; set; }
 
         public CryptoViewModel(Crypto c)
         {
-            this._model = c;
+            this.Model = c;
         }
 
         #region Get/Set
 
         public double Id
         {
-            get => this._model.Id;
+            get => this.Model.Id;
             set
             {
-                this._model.Id = value;
+                this.Model.Id = value;
                 this.NotifyPropertyChanged(nameof(Id));
             }
         }
 
         public string Name
         {
-            get => this._model.Name; 
+            get => this.Model.Name; 
             set
             {
-                this._model.Name = value;
+                this.Model.Name = value;
                 this.NotifyPropertyChanged(nameof(Name));
             }
         }
 
         public string Symbol
         {
-            get => this._model.Symbol; 
+            get => this.Model.Symbol; 
             set
             {
-                this._model.Symbol = value;
+                this.Model.Symbol = value;
                 this.NotifyPropertyChanged(nameof(Symbol));
             }
         }
 
         public double Price
         {
-            get => this._model.Price; 
+            get => this.Model.Price; 
             set
             {
-                this._model.Price = value;
+                this.Model.Price = value;
                 this.NotifyPropertyChanged(nameof(Price));
             }
         }
 
         public double Volume24H
         {
-            get => this._model.Volume24H; 
+            get => this.Model.Volume24H; 
             set
             {
-                this._model.Volume24H = value;
+                this.Model.Volume24H = value;
                 this.NotifyPropertyChanged(nameof(Volume24H));
             }
         }
 
         public double Change1H
         {
-            get => this._model.Change1H; 
+            get => this.Model.Change1H; 
             set
             {
-                this._model.Change1H = value;
+                this.Model.Change1H = value;
                 this.NotifyPropertyChanged(nameof(Change1H));
             }
         }
 
         public double Change1D
         {
-            get => this._model.Change1D; 
+            get => this.Model.Change1D; 
             set
             {
-                this._model.Change1D = value;
+                this.Model.Change1D = value;
                 this.NotifyPropertyChanged(nameof(Change1D));
             }
         }
 
         public double Change1W
         {
-            get => this._model.Change1W; 
+            get => this.Model.Change1W; 
             set
             {
-                this._model.Change1W = value;
+                this.Model.Change1W = value;
                 this.NotifyPropertyChanged(nameof(Change1W));
             }
         }
 
         public double Marketcap
         {
-            get => this._model.Marketcap;
+            get => this.Model.Marketcap;
             set
             {
-                this._model.Marketcap = value;
+                this.Model.Marketcap = value;
                 this.NotifyPropertyChanged(nameof(Marketcap));
             }
         }

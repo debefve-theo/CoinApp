@@ -2,6 +2,7 @@
 
 using System.Collections.ObjectModel;
 using Model;
+using Newtonsoft.Json;
 
 namespace ViewModel
 {
@@ -13,9 +14,9 @@ namespace ViewModel
         public ConectionWindowViewModel()
         {
             // Verif exist fichier + creation ***
-            if (!File.Exists("./UserData.json"))
+            if (!File.Exists("./DataUser.json"))
             {
-                File.Create("./UserData.json");
+                File.Create("./DataUser.json");
             }
 
             // Serialize
@@ -54,6 +55,7 @@ namespace ViewModel
             */
 
             // Test Data
+            
             UserViewModel U1 = new UserViewModel(new User()
             {
                 Id = 1,
@@ -74,6 +76,7 @@ namespace ViewModel
 
             this.ItemsU.Add(U1);
             this.ItemsU.Add(U2);
+            
 
             // 
 

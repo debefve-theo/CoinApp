@@ -13,8 +13,7 @@
         FontFamily="Segoe UI"
         Foreground="#2d3436"
         WindowStartupLocation="CenterScreen"
-        Icon="/Img/icon.png"
-    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+        Icon="/Img/icon.png">
     <!-- Ressources -->
     <Window.Resources>
         <Style TargetType="{x:Type Button}" x:Key="MenuButton">
@@ -176,10 +175,10 @@
         <Border Grid.Column="1" Background="#dfe6e9" CornerRadius="15,0,0,0">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="ColHome" Width="0"/>
+                    <ColumnDefinition x:Name="ColHome" Width="*"/>
                     <ColumnDefinition x:Name="ColTransaction" Width="0"/>
                     <ColumnDefinition x:Name="ColRepartition" Width="0"/>
-                    <ColumnDefinition x:Name="ColWatchlist" Width="*"/>
+                    <ColumnDefinition x:Name="ColWatchlist" Width="0"/>
                 </Grid.ColumnDefinitions>
 
                 <!-- ########## Home ########## -->
@@ -212,9 +211,9 @@
                                     </Button>
                                 </WrapPanel>
 
-                                <TextBlock Text="752,15 €" Grid.Row="1" Grid.Column="0" FontSize="36" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" Height="50" Margin="0,10,0,0"/>
+                                <TextBlock x:Name="BoxNow" Text="752,15 €" Grid.Row="1" Grid.Column="0" FontSize="36" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" Height="50" Margin="0,10,0,0"/>
                                 <Border Grid.Row="1" Grid.Column="1" Background="#00b894" CornerRadius="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,4" Height="40">
-                                    <TextBlock Text="+ 2,31%" FontSize="16" FontWeight="Black" Foreground="White" Padding="15,10,15,10" VerticalAlignment="Top"/>
+                                    <TextBlock x:Name="BoxNowPercent" Text="+ 2,31%" FontSize="16" FontWeight="Black" Foreground="White" Padding="15,10,15,10" VerticalAlignment="Top"/>
                                 </Border>
                             </Grid>
                         </Border>
@@ -230,11 +229,11 @@
 
                                 <WrapPanel Grid.Row="0" VerticalAlignment="Bottom" Margin="40,0,0,10">
                                     <TextBlock Text="Valeur total d'achats" FontSize="18" FontWeight="Bold"/>
-                                    <TextBlock Text="895,05€" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
+                                    <TextBlock x:Name="BoxTotal" Text="895,05€" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
                                 </WrapPanel>
                                 <WrapPanel Grid.Row="1" VerticalAlignment="Top" Margin="40,10,0,0">
                                     <TextBlock Text="Gain/Perte total" FontSize="18" FontWeight="Bold"/>
-                                    <TextBlock Text="- 150,02€" Foreground="#d63031" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
+                                    <TextBlock x:Name="BoxTotalLose" Text="- 150,02€" Foreground="#d63031" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
                                 </WrapPanel>
                             </Grid>
                         </Border>
@@ -292,14 +291,15 @@
 
                             <DataGrid x:Name="DataGridTransaction" GridLinesVisibility="Horizontal"  AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="True" ItemsSource="{Binding ItemsT}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#2d3436" Margin="15,15,15,15">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Crypto" Binding="{Binding Cryptocurrency.Symbol}"/>
-                                    <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
-                                    <DataGridTextColumn Header="Prix par token" Binding="{Binding PricePerToken}"/>
-                                    <DataGridTextColumn Header="Prix" Binding="{Binding Id}"/>
-                                    <DataGridTextColumn Header="Frais" Binding="{Binding Fees}"/>
-                                    <DataGridTextColumn Header="Total" Binding="{Binding Id}"/>
-                                    <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
-                                    <DataGridTextColumn Header="Exchange" Binding="{Binding Exchange}"/>
+                                    <DataGridTextColumn Header="A/V" Binding="{Binding Av}" Width="5*"/>
+                                    <DataGridTextColumn Header="Crypto" Binding="{Binding Cryptocurrency.Symbol}" Width="10*"/>
+                                    <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}" Width="10*"/>
+                                    <DataGridTextColumn Header="Prix par token" Binding="{Binding PricePerToken}" Width="12*"/>
+                                    <DataGridTextColumn Header="Prix" Binding="{Binding Price, StringFormat={}{0:N2}}" Width="10*"/>
+                                    <DataGridTextColumn Header="Frais" Binding="{Binding Fees, StringFormat={}{0:N2}}" Width="10*"/>
+                                    <DataGridTextColumn Header="Total" Binding="{Binding Total , StringFormat={}{0:N2}}" Width="10*"/>
+                                    <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="18*"/>
+                                    <DataGridTextColumn Header="Exchange" Binding="{Binding Exchange}" Width="15*"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button Style="{StaticResource ButtonTransparent}" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,20,20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#2d3436" Click="BtnAddTransaction_Click">
@@ -324,13 +324,13 @@
                     <Border Background="white" CornerRadius="15" Margin="40,25,40,0" Height="560" Padding="0,0,0,0">
                         <DataGrid AutoGenerateColumns="False" GridLinesVisibility="Horizontal" IsReadOnly="True" ItemsSource="{Binding ItemsC}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#2d3436" Margin="15,15,15,15">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Crypto" Binding="{Binding Name}"/>
-                                <DataGridTextColumn Header="Prix" Binding="{Binding Price}"/>
-                                <DataGridTextColumn Header="1 heure" Binding="{Binding Change1H}"/>
-                                <DataGridTextColumn Header="1 jour" Binding="{Binding Change1D}"/>
-                                <DataGridTextColumn Header="1 semmaine" Binding="{Binding Change1W}"/>
-                                <DataGridTextColumn Header="Market Cap" Binding="{Binding Marketcap}"/>
-                                <DataGridTextColumn Header="Volume 24h" Binding="{Binding Volume24H}"/>
+                                <DataGridTextColumn Header="Crypto" Binding="{Binding Name}"  Width="15*"/>
+                                <DataGridTextColumn Header="Prix" Binding="{Binding Price, StringFormat={}{0:N6}}" Width="15*"/>
+                                <DataGridTextColumn Header="1 heure" Binding="{Binding Change1H, StringFormat={}{0:N2} %}" Width="10*"/>
+                                <DataGridTextColumn Header="1 jour" Binding="{Binding Change1D, StringFormat={}{0:N2} %}" Width="10*"/>
+                                <DataGridTextColumn Header="1 semmaine" Binding="{Binding Change1W, StringFormat={}{0:N2} %}" Width="10*"/>
+                                <DataGridTextColumn Header="Market Cap" Binding="{Binding Marketcap, StringFormat={}{0:N2}}" Width="20*"/>
+                                <DataGridTextColumn Header="Volume 24h" Binding="{Binding Volume24H, StringFormat={}{0:N2}}" Width="20*"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Border>
