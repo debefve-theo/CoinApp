@@ -45,70 +45,25 @@ namespace ViewModel
             }
         }
 
-        public double Price
+        public CryptoDetails Details
         {
-            get => this.Model.Price; 
+            get => this.Model.Details;
             set
             {
-                this.Model.Price = value;
-                this.NotifyPropertyChanged(nameof(Price));
+                this.Model.Details = value;
+                this.NotifyPropertyChanged(nameof(Details));
             }
         }
 
-        public double Volume24H
+        public CryptoOwn Own
         {
-            get => this.Model.Volume24H; 
+            get => this.Model.Own;
             set
             {
-                this.Model.Volume24H = value;
-                this.NotifyPropertyChanged(nameof(Volume24H));
+                this.Model.Own = value;
+                this.NotifyPropertyChanged(nameof(Own));
             }
         }
-
-        public double Change1H
-        {
-            get => this.Model.Change1H; 
-            set
-            {
-                this.Model.Change1H = value;
-                this.NotifyPropertyChanged(nameof(Change1H));
-            }
-        }
-
-        public double Change1D
-        {
-            get => this.Model.Change1D; 
-            set
-            {
-                this.Model.Change1D = value;
-                this.NotifyPropertyChanged(nameof(Change1D));
-            }
-        }
-
-        public double Change1W
-        {
-            get => this.Model.Change1W; 
-            set
-            {
-                this.Model.Change1W = value;
-                this.NotifyPropertyChanged(nameof(Change1W));
-            }
-        }
-
-        public double Marketcap
-        {
-            get => this.Model.Marketcap;
-            set
-            {
-                this.Model.Marketcap = value;
-                this.NotifyPropertyChanged(nameof(Marketcap));
-            }
-        }
-
-        #endregion
-
-        #region Methods
-
 
         #endregion
     }

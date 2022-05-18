@@ -12,6 +12,7 @@ namespace View
     public partial class AddTransactionWindow : Window
     {
         public MainWindowViewModel ViewModel { get; set; }
+        public static TransactionViewModel? CurrentTransaction { get; set; }
 
         public AddTransactionWindow(MainWindowViewModel vm)
         {
@@ -22,13 +23,17 @@ namespace View
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.ItemsT.Add(GetData());
+            CurrentTransaction = GetData();
+            ViewModel.ItemsT.Add(CurrentTransaction);
+            ViewModel.UpdateMainList(CurrentTransaction.Cryptocurrency.Id);
             Close();
         }
 
         private void BtnAppliquer_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.ItemsT.Add(GetData());
+            CurrentTransaction = GetData();
+            ViewModel.ItemsT.Add(CurrentTransaction);
+            ViewModel.UpdateMainList(CurrentTransaction.Cryptocurrency.Id);
             CleanField();
         }
 
@@ -43,13 +48,36 @@ namespace View
             {
                 Id = 1000,
                 Av = (bool)RadioButtonV.IsChecked,
-                Cryptocurrency = ((CryptoViewModel)FieldCrypto.SelectedItem).Model,
                 Quantity = float.Parse(TextBoxQuantity.Text, CultureInfo.InvariantCulture.NumberFormat),
                 PricePerToken = float.Parse(TextBoxPrice.Text, CultureInfo.InvariantCulture.NumberFormat),
                 Fees = float.Parse(TextBoxFees.Text, CultureInfo.InvariantCulture.NumberFormat),
                 Date = new DateTime(FieldDate.SelectedDate.Value.Year, FieldDate.SelectedDate.Value.Month, FieldDate.SelectedDate.Value.Day, int.Parse(FieldHour.Text), int.Parse(FieldMin.Text), 0),
-                Exchange = TextBoxExchange.Text
+                Exchange = TextBoxExchange.Text,
+                Cryptocurrency = ((CryptoViewModel)FieldCrypto.SelectedItem).Model
             });
+
+            if (((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own is null)
+            {
+                if ((bool)RadioButtonV.IsChecked)
+                {
+                    // impossible possède pas cette crypto
+                }
+                else
+                {
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own = new CryptoOwn(true, currentTransaction.Price, 0, 0);
+                }
+            }
+            else
+            {
+                if ((bool)RadioButtonV.IsChecked)
+                {
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance - currentTransaction.Price;
+                }
+                else
+                {
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance + currentTransaction.Price;
+                }
+            }
 
             return currentTransaction;
         }

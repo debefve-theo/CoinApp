@@ -76,18 +76,18 @@
 
         #region METHODES TRANSACTION
 
-        public static float CalculPrixSansFraisTransaction(double id)
+        public static double CalculPrixSansFraisTransaction(double pricePerToken, double quantity)
         {
-            float result = 0;
+            double result = 0;
 
             // recup la transaction sa quantite et son prix par token
 
             return result;
         }
 
-        public static float CalculPrixAvecFraisTransaction(double id)
+        public static double CalculPrixAvecFraisTransaction(double id)
         {
-            float result = 0;
+            double result = 0;
 
             // recup la transaction sa quantite et son prix par token et les frais
 

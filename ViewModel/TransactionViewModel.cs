@@ -35,16 +35,6 @@ namespace ViewModel
             }
         }
 
-        public Crypto Cryptocurrency
-        {
-            get => this._model.Cryptocurrency;
-            set
-            {
-                this._model.Cryptocurrency = value;
-                this.NotifyPropertyChanged(nameof(Cryptocurrency));
-            }
-        }
-
         public double Quantity
         {
             get => this._model.Quantity;
@@ -97,6 +87,16 @@ namespace ViewModel
             {
                 this._model.Exchange = value;
                 this.NotifyPropertyChanged(nameof(Exchange));
+            }
+        }
+
+        public Crypto Cryptocurrency
+        {
+            get => this._model.Cryptocurrency;
+            set
+            {
+                this._model.Cryptocurrency = value;
+                this.NotifyPropertyChanged(nameof(Cryptocurrency));
             }
         }
 
