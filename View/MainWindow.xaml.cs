@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright © 2022 - Theo Debefve
+
+using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using ViewModel;

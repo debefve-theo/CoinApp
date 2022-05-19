@@ -9,6 +9,6 @@ namespace Model
         public string? Symbol { get; set; }
 
         public CryptoDetails? Details { get; set; }
-        public CryptoOwn Own { get; set; }
+        public CryptoOwn? Own { get; set; }
     }
 }

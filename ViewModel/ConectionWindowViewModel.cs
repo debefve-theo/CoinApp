@@ -76,10 +76,6 @@ namespace ViewModel
 
             this.ItemsU.Add(U1);
             this.ItemsU.Add(U2);
-            
-
-            // 
-
         }
     }
 }

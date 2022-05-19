@@ -211,7 +211,7 @@
                                     </Button>
                                 </WrapPanel>
 
-                                <TextBlock x:Name="BoxNow" Text="752,15 €" Grid.Row="1" Grid.Column="0" FontSize="36" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" Height="50" Margin="0,10,0,0"/>
+                                <TextBlock x:Name="BoxNow" Text="{Binding SoldeNow}" Grid.Row="1" Grid.Column="0" FontSize="36" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" Height="50" Margin="0,10,0,0"/>
                                 <Border Grid.Row="1" Grid.Column="1" Background="#00b894" CornerRadius="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,4" Height="40">
                                     <TextBlock x:Name="BoxNowPercent" Text="+ 2,31%" FontSize="16" FontWeight="Black" Foreground="White" Padding="15,10,15,10" VerticalAlignment="Top"/>
                                 </Border>
@@ -246,11 +246,11 @@
                                 <DataGrid x:Name="DataGridHome" GridLinesVisibility="Horizontal"  AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="True" ItemsSource="{Binding ItemsM}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#2d3436" Margin="15,15,15,15">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="15*"/>
-                                        <DataGridTextColumn Header="Prix" Binding="{Binding Details.Price}" Width="15*"/>
-                                        <DataGridTextColumn Header="24h" Binding="{Binding Details.Change24H}" Width="15*"/>
-                                        <DataGridTextColumn Header="Balance" Binding="{Binding Own.Balance}" Width="15*"/>
-                                        <DataGridTextColumn Header="Gains/Perte" Binding="{Binding Own.Gains}" Width="20*"/>
-                                        <DataGridTextColumn Header="Allocations" Binding="{Binding Own.Allocation}" Width="20*"/>
+                                        <DataGridTextColumn Header="Prix" Binding="{Binding Details.Price, StringFormat={}{0:N2} €}" Width="15*"/>
+                                        <DataGridTextColumn Header="24h" Binding="{Binding Details.Change1D, StringFormat={}{0:N2} %}" Width="15*"/>
+                                        <DataGridTextColumn Header="Balance" Binding="{Binding Own.BalanceE, StringFormat={}{0:N2} €}" Width="15*"/>
+                                        <DataGridTextColumn Header="Gains/Perte" Binding="{Binding Own.Gains, StringFormat={}{0:N2} €}" Width="20*"/>
+                                        <DataGridTextColumn Header="Allocations" Binding="{Binding Own.Allocation, StringFormat={}{0:N2} %}" Width="20*"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Border>

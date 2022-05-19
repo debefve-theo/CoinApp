@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿// Copyright © 2022 - Theo Debefve
+
+using System.ComponentModel;
 using System.Windows;
 
 namespace View

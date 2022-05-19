@@ -1,4 +1,6 @@
-﻿using Model;
+﻿// Copyright © 2022 - Theo Debefve
+
+using Model;
 using System.Collections.ObjectModel;
 using ClassLibrary;
 using Newtonsoft.Json;
@@ -7,12 +9,17 @@ namespace ViewModel
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        #region VARIABLES
         public TransactionViewModel CurrentTransaction { get; set; }
         public static CryptoViewModel? CurrentCrypto { get; set; }
+
         public ObservableCollection<CryptoViewModel> ItemsC { get; set; }
         public ObservableCollection<TransactionViewModel> ItemsT { get; set; }
         public ObservableCollection<CryptoViewModel> ItemsM { get; set; }
 
+        #endregion
+
+        #region MAIN
         public MainWindowViewModel()
         {
             ItemsC = GetCryptoList();
@@ -23,38 +30,17 @@ namespace ViewModel
                 File.Create("./DataTransaction.json");
             }
 
-            // add test transaction
+            // Crée la liste de transaction
             this.ItemsT = new ObservableCollection<TransactionViewModel>();
-            /*
-            this.ItemsT.Add(new TransactionViewModel(new Transaction()
-            {
-                Id = 1001,
-                Av = true,
-                Quantity = 10,
-                PricePerToken = 2500,
-                Fees = 25,
-                Date = new DateTime(2022, 04, 27, 09, 02, 13),
-                Exchange = "Binance",
-                Cryptocurrency = 
-            }));
 
-            this.ItemsT.Add(new TransactionViewModel(new Transaction()
-            {
-                Id = 1002,
-                Av = true,
-                Quantity = 2000,
-                PricePerToken = 0.15,
-                Fees = 0,
-                Date = new DateTime(2022, 04, 27, 09, 03, 33),
-                Exchange = "FTX",
-            }));
-            */
-
+            // Crée la liste de résumé
             this.ItemsM = new ObservableCollection<CryptoViewModel>();
-
             MainList();
         }
 
+        #endregion
+
+        #region METHODS
         public static ObservableCollection<CryptoViewModel> GetCryptoList()
         {
             ObservableCollection<CryptoViewModel> list = new ObservableCollection<CryptoViewModel>();
@@ -95,6 +81,8 @@ namespace ViewModel
                 if (element.Own is not null)  
                 {
                     ItemsM.Add(element);
+                    //SoldeNow = SoldeNow + element.Own.BalanceE;
+                    //TotalAchat = TotalAchat + element.Own.TotalAchat;
                 }
             }
         }
@@ -110,5 +98,7 @@ namespace ViewModel
             string jsonS = JsonConvert.SerializeObject(CurrentTransaction, Formatting.Indented);
             var jsonD = JsonConvert.DeserializeObject(jsonS);
         }
+
+        #endregion
     }
 }

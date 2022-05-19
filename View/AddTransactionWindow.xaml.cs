@@ -1,7 +1,6 @@
 ﻿// Copyright © 2022 - Theo Debefve
 
 using System;
-using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
 using Model;
@@ -56,6 +55,8 @@ namespace View
                 Cryptocurrency = ((CryptoViewModel)FieldCrypto.SelectedItem).Model
             });
 
+            double i = currentTransaction.Quantity * ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Details.Price;
+
             if (((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own is null)
             {
                 if ((bool)RadioButtonV.IsChecked)
@@ -64,18 +65,22 @@ namespace View
                 }
                 else
                 {
-                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own = new CryptoOwn(true, currentTransaction.Price, 0, 0);
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own = new CryptoOwn(true, currentTransaction.Quantity, i, currentTransaction.Total, 0, 0);
                 }
             }
             else
             {
                 if ((bool)RadioButtonV.IsChecked)
                 {
-                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance - currentTransaction.Price;
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance - currentTransaction.Quantity;
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE - (currentTransaction.Quantity * ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Details.Price);
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.TotalAchat = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.TotalAchat - currentTransaction.Total;
                 }
                 else
                 {
-                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance + currentTransaction.Price;
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance + currentTransaction.Quantity;
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE + (currentTransaction.Quantity * ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Details.Price);
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.TotalAchat = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.TotalAchat + currentTransaction.Total;
                 }
             }
 
