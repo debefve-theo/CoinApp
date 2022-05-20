@@ -45,6 +45,46 @@ namespace ViewModel
             }
         }
 
+        public UserOwn Own
+        {
+            get => this._model.Own;
+            set
+            {
+                this._model.Own = value;
+                this.NotifyPropertyChanged(nameof(Own));
+            }
+        }
+        /*
+        public double SoldeNow
+        {
+            get => this._model.SoldeNow;
+            set
+            {
+                this._model.SoldeNow = value;
+                this.NotifyPropertyChanged(nameof(SoldeNow));
+            }
+        }
+
+        public double TotalAchat
+        {
+            get => this._model.TotalAchat;
+            set
+            {
+                this._model.TotalAchat = value;
+                this.NotifyPropertyChanged(nameof(TotalAchat));
+            }
+        }
+
+        public double GainPerte
+        {
+            get => this._model.GainPerte;
+            set
+            {
+                this._model.GainPerte = value;
+                this.NotifyPropertyChanged(nameof(GainPerte));
+            }
+        }
+        */
         #endregion
     }
 }

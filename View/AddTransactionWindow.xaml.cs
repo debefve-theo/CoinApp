@@ -24,7 +24,7 @@ namespace View
         {
             CurrentTransaction = GetData();
             ViewModel.ItemsT.Add(CurrentTransaction);
-            ViewModel.UpdateMainList(CurrentTransaction.Cryptocurrency.Id);
+            ViewModel.UpdateMainList();
             Close();
         }
 
@@ -32,7 +32,7 @@ namespace View
         {
             CurrentTransaction = GetData();
             ViewModel.ItemsT.Add(CurrentTransaction);
-            ViewModel.UpdateMainList(CurrentTransaction.Cryptocurrency.Id);
+            ViewModel.UpdateMainList();
             CleanField();
         }
 

@@ -12,6 +12,7 @@ namespace ViewModel
         #region VARIABLES
         public TransactionViewModel CurrentTransaction { get; set; }
         public static CryptoViewModel? CurrentCrypto { get; set; }
+        public UserViewModel? CurrentUser { get; set; }
 
         public ObservableCollection<CryptoViewModel> ItemsC { get; set; }
         public ObservableCollection<TransactionViewModel> ItemsT { get; set; }
@@ -20,8 +21,10 @@ namespace ViewModel
         #endregion
 
         #region MAIN
-        public MainWindowViewModel()
+        public MainWindowViewModel(UserViewModel user)
         {
+            CurrentUser = user;
+
             ItemsC = GetCryptoList();
 
             // Verif exist fichier + creation ***
@@ -36,6 +39,9 @@ namespace ViewModel
             // Crée la liste de résumé
             this.ItemsM = new ObservableCollection<CryptoViewModel>();
             MainList();
+
+            // Mets en place les valeur de base dans UserOwn
+
         }
 
         #endregion
@@ -76,18 +82,23 @@ namespace ViewModel
 
         public void MainList()
         {
+            CurrentUser.Own.SoldeNow = 0;
+            CurrentUser.Own.TotalAchat = 0;
+
             foreach (CryptoViewModel element in ItemsC)
             {
                 if (element.Own is not null)  
                 {
                     ItemsM.Add(element);
                     //SoldeNow = SoldeNow + element.Own.BalanceE;
+                    CurrentUser.Own.SoldeNow = CurrentUser.Own.SoldeNow + element.Own.BalanceE;
                     //TotalAchat = TotalAchat + element.Own.TotalAchat;
+                    CurrentUser.Own.TotalAchat = CurrentUser.Own.TotalAchat + element.Own.TotalAchat;
                 }
             }
         }
 
-        public void UpdateMainList(double idc)
+        public void UpdateMainList()
         {
             ItemsM.Clear();
             MainList();

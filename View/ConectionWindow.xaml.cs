@@ -20,30 +20,13 @@ namespace View
             DragMove();
         }
 
-        private bool VerifyUser(string username, string password)
-        {
-            foreach (UserViewModel item in ViewModel.ItemsU)
-            {
-                if (item.UserName == username)
-                {
-                    if (item.Password == password)
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
         private void ButtonConection_Click(object sender, RoutedEventArgs e)
         {
-            if (VerifyUser(FieldUsr.Text, FieldPswd.Password))
-            {
-                FieldUsr.Text = "";
-                FieldPswd.Password = "";
+            ViewModel.CurrentUser = VerifyUser(FieldUsr.Text, FieldPswd.Password);
 
-                MainWindow windowMain = new();
+            if (ViewModel.CurrentUser is not null)
+            {
+                MainWindow windowMain = new(ViewModel.CurrentUser);
                 windowMain.Show();
                 Close();
             }
@@ -62,6 +45,22 @@ namespace View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private UserViewModel VerifyUser(string username, string password)
+        {
+            foreach (UserViewModel item in ViewModel.ItemsU)
+            {
+                if (item.UserName == username)
+                {
+                    if (item.Password == password)
+                    {
+                        return item;
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }

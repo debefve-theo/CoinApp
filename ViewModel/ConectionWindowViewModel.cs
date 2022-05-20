@@ -60,17 +60,27 @@ namespace ViewModel
             {
                 Id = 1,
                 UserName = "Admin",
-                Password = "Password"
-            }
-            );
+                Password = "Password",
+                Own = new UserOwn()
+                {
+                    TotalAchat = 0,
+                    SoldeNow = 0,
+                    GainPerte = 0
+                }
+            });
 
             UserViewModel U2 = new UserViewModel(new User()
             {
                 Id = 2,
                 UserName = "Theo",
-                Password = "Ethereum"
-            }
-            );
+                Password = "Ethereum",
+                Own = new UserOwn()
+                {
+                    TotalAchat = 0,
+                    SoldeNow = 0,
+                    GainPerte = 0
+                }
+            });
 
             this.ItemsU = new ObservableCollection<UserViewModel>();
 

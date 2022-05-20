@@ -2,6 +2,8 @@
 
 using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using ViewModel;
 
@@ -13,10 +15,10 @@ namespace View
 
         private bool _reduce = true, _eye = true;
 
-        public MainWindow()
+        public MainWindow(UserViewModel user)
         {
             InitializeComponent();
-            ViewModel = new MainWindowViewModel();
+            ViewModel = new MainWindowViewModel(user);
             this.DataContext = ViewModel;
         }
 
@@ -124,7 +126,13 @@ namespace View
                 EyeImg.Source = myImage;
                 _eye = true;
 
-                BoxNow.Text = "752,15 €";
+                Binding myBinding = new Binding("Own.SoldeNow");
+                myBinding.Source = ViewModel.CurrentUser;
+                // Bind the new data source to the myText TextBlock control's Text dependency property.
+                BoxNow.SetBinding(TextBlock.TextProperty, myBinding);
+
+                //BoxNow.Text = ViewModel.CurrentUser.Own.SoldeNow.ToString();
+                //BoxNow.Text = "752,15 €";
                 BoxNowPercent.Text = "+ 2,31%";
                 BoxTotal.Text = "895,05€";
                 BoxTotalLose.Text = "- 150,02€";
