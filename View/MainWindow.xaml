@@ -176,9 +176,9 @@
         <Border Grid.Column="1" Background="#dfe6e9" CornerRadius="15,0,0,0">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="ColHome" Width="0"/>
+                    <ColumnDefinition x:Name="ColHome" Width="*"/>
                     <ColumnDefinition x:Name="ColTransaction" Width="0"/>
-                    <ColumnDefinition x:Name="ColRepartition" Width="*"/>
+                    <ColumnDefinition x:Name="ColRepartition" Width="0"/>
                     <ColumnDefinition x:Name="ColWatchlist" Width="0"/>
                 </Grid.ColumnDefinitions>
 
@@ -314,14 +314,6 @@
 
                     <!-- List -->
                     <Border Background="white" CornerRadius="15" Margin="40,25,40,0" Height="560" Padding="0,0,0,0">
-                        <!--<lvc:PieChart LegendLocation="Bottom" Hoverable="False" DataTooltip="{x:Null}">
-                            <lvc:PieChart.Series>
-                                <lvc:PieSeries Title="Maria" Values="3" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                                <lvc:PieSeries Title="Charles" Values="4" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                                <lvc:PieSeries Title="Frida" Values="6" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                                <lvc:PieSeries Title="Frederic" Values="2" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
-                            </lvc:PieChart.Series>
-                        </lvc:PieChart>-->
                     </Border>
                 </StackPanel>
 

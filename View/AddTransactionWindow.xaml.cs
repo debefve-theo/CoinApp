@@ -24,7 +24,8 @@ namespace View
         {
             CurrentTransaction = GetData();
             ViewModel.ItemsT.Add(CurrentTransaction);
-            ViewModel.UpdateMainList();
+            UpdateData();
+            ViewModel.MainList();
             Close();
         }
 
@@ -32,7 +33,8 @@ namespace View
         {
             CurrentTransaction = GetData();
             ViewModel.ItemsT.Add(CurrentTransaction);
-            ViewModel.UpdateMainList();
+            UpdateData();
+            ViewModel.MainList();
             CleanField();
         }
 
@@ -55,36 +57,43 @@ namespace View
                 Cryptocurrency = ((CryptoViewModel)FieldCrypto.SelectedItem).Model
             });
 
-            double i = currentTransaction.Quantity * ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Details.Price;
+            return currentTransaction;
+        }
 
+        private void UpdateData()
+        {
             if (((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own is null)
             {
-                if ((bool)RadioButtonV.IsChecked)
+                if (CurrentTransaction.Av is true) // Impossible de vendre
                 {
-                    // impossible possède pas cette crypto
+                    MessageBox.Show("Vous ne possédez pas cette Crypto !");
                 }
-                else
+                else // Possible d'acheter
                 {
-                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own = new CryptoOwn(true, currentTransaction.Quantity, i, currentTransaction.Total, 0, 0);
+                    double i = CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price;
+                    CurrentTransaction.Cryptocurrency.Own = new CryptoOwn(true, CurrentTransaction.Quantity, i, CurrentTransaction.Total, 0, 0);
+                    ViewModel.CurrentUser.SoldeNow = ViewModel.CurrentUser.SoldeNow + (CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price);
+                    ViewModel.CurrentUser.TotalAchat = ViewModel.CurrentUser.TotalAchat + CurrentTransaction.Total;
                 }
             }
             else
             {
-                if ((bool)RadioButtonV.IsChecked)
+                if (CurrentTransaction.Av is true) // Possible de vendre
                 {
-                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance - currentTransaction.Quantity;
-                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE - (currentTransaction.Quantity * ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Details.Price);
-                    ViewModel.UpdateTotalAcahat();
+                    CurrentTransaction.Cryptocurrency.Own.Balance = CurrentTransaction.Cryptocurrency.Own.Balance - CurrentTransaction.Quantity;
+                    CurrentTransaction.Cryptocurrency.Own.BalanceE = CurrentTransaction.Cryptocurrency.Own.BalanceE - (CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price);
+                    ViewModel.CurrentUser.SoldeNow = ViewModel.CurrentUser.SoldeNow - (CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price);
+                    ViewModel.CurrentUser.TotalAchat = ViewModel.CurrentUser.TotalAchat - CurrentTransaction.Total;
                 }
-                else
+                else // Possible d'acheter
                 {
-                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance + currentTransaction.Quantity;
-                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE + (currentTransaction.Quantity * ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Details.Price);
-                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.TotalAchat = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.TotalAchat + currentTransaction.Total;
+                    CurrentTransaction.Cryptocurrency.Own.Balance = CurrentTransaction.Cryptocurrency.Own.Balance + CurrentTransaction.Quantity;
+                    CurrentTransaction.Cryptocurrency.Own.BalanceE = CurrentTransaction.Cryptocurrency.Own.BalanceE + (CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price);
+                    CurrentTransaction.Cryptocurrency.Own.TotalAchat = CurrentTransaction.Cryptocurrency.Own.TotalAchat + CurrentTransaction.Total;
+                    ViewModel.CurrentUser.SoldeNow = ViewModel.CurrentUser.SoldeNow + (CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price);
+                    ViewModel.CurrentUser.TotalAchat = ViewModel.CurrentUser.TotalAchat + CurrentTransaction.Total;
                 }
             }
-
-            return currentTransaction;
         }
 
         private void CleanField()

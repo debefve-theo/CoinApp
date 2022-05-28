@@ -6,8 +6,6 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using ViewModel;
-using LiveCharts;
-using LiveCharts.Wpf;
 
 namespace View
 {
@@ -21,13 +19,8 @@ namespace View
         {
             InitializeComponent();
             ViewModel = new MainWindowViewModel(user);
-
-            //PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
-
             this.DataContext = ViewModel;
         }
-
-        //public Func<ChartPoint, string> PointLabel { get; set; }
 
         #region BUTTON MENU
         private void BtnMenuHome_Click(object sender, RoutedEventArgs e)
@@ -133,17 +126,26 @@ namespace View
                 EyeImg.Source = myImage;
                 _eye = true;
 
-                Binding myBinding = new Binding("SoldeNow");
-                myBinding.Source = ViewModel.CurrentUser;
-                myBinding.StringFormat = "{0:N2} €";
-                // Bind the new data source to the myText TextBlock control's Text dependency property.
-                BoxNow.SetBinding(TextBlock.TextProperty, myBinding);
+                Binding myBinding1 = new Binding("SoldeNow");
+                myBinding1.Source = ViewModel.CurrentUser;
+                myBinding1.StringFormat = "{0:N2} €";
+                BoxNow.SetBinding(TextBlock.TextProperty, myBinding1);
 
-                //BoxNow.Text = ViewModel.CurrentUser.Own.SoldeNow.ToString();
-                //BoxNow.Text = "752,15 €";
-                BoxNowPercent.Text = "+ 2,31%";
-                BoxTotal.Text = "895,05€";
-                BoxTotalLose.Text = "- 150,02€";
+                /*Binding myBinding2 = new Binding("");
+                myBinding2.Source = ViewModel.CurrentUser;
+                myBinding2.StringFormat = "{0:N2} %";
+                BoxNowPercent.SetBinding(TextBlock.TextProperty, myBinding2);*/
+                BoxNowPercent.Text = "+ 0.00 %";
+
+                Binding myBinding3 = new Binding("TotalAchat");
+                myBinding3.Source = ViewModel.CurrentUser;
+                myBinding3.StringFormat = "{0:N2} €";
+                BoxTotal.SetBinding(TextBlock.TextProperty, myBinding3);
+
+                Binding myBinding4 = new Binding("GainPerte");
+                myBinding4.Source = ViewModel.CurrentUser;
+                myBinding4.StringFormat = "{0:N2} €";
+                BoxTotalLose.SetBinding(TextBlock.TextProperty, myBinding4);
             }
         }
     }
