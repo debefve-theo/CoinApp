@@ -61,12 +61,8 @@ namespace ViewModel
                 Id = 1,
                 UserName = "Admin",
                 Password = "Password",
-                Own = new UserOwn()
-                {
-                    TotalAchat = 0,
-                    SoldeNow = 0,
-                    GainPerte = 0
-                }
+                TotalAchat = 0,
+                SoldeNow = 0
             });
 
             UserViewModel U2 = new UserViewModel(new User()
@@ -74,12 +70,8 @@ namespace ViewModel
                 Id = 2,
                 UserName = "Theo",
                 Password = "Ethereum",
-                Own = new UserOwn()
-                {
-                    TotalAchat = 0,
-                    SoldeNow = 0,
-                    GainPerte = 0
-                }
+                TotalAchat = 0,
+                SoldeNow = 0
             });
 
             this.ItemsU = new ObservableCollection<UserViewModel>();

@@ -7,11 +7,13 @@ namespace Model
         public int Id { get; set; }
         public string? UserName { get; set; }
         public string? Password { get; set; }
-        /*
+
         public double SoldeNow { get; set; }
         public double TotalAchat { get; set; }
-        public double GainPerte { get; set; }
-        */
-        public UserOwn? Own { get; set; }
+
+        public double GainPerte
+        {
+            get { return (SoldeNow - TotalAchat); }
+        }
     }
 }

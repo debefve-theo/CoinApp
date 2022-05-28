@@ -6,6 +6,8 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using ViewModel;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace View
 {
@@ -14,13 +16,18 @@ namespace View
         public MainWindowViewModel ViewModel { get; set; }
 
         private bool _reduce = true, _eye = true;
-
+        
         public MainWindow(UserViewModel user)
         {
             InitializeComponent();
             ViewModel = new MainWindowViewModel(user);
+
+            //PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+
             this.DataContext = ViewModel;
         }
+
+        //public Func<ChartPoint, string> PointLabel { get; set; }
 
         #region BUTTON MENU
         private void BtnMenuHome_Click(object sender, RoutedEventArgs e)
@@ -57,7 +64,7 @@ namespace View
 
         private void BtnMenuParametre_Click(object sender, RoutedEventArgs e)
         {
-            SettingsWindow windowSettings = new();
+            SettingsWindow windowSettings = new(ViewModel);
             windowSettings.ShowDialog();
     }
 
@@ -126,8 +133,9 @@ namespace View
                 EyeImg.Source = myImage;
                 _eye = true;
 
-                Binding myBinding = new Binding("Own.SoldeNow");
+                Binding myBinding = new Binding("SoldeNow");
                 myBinding.Source = ViewModel.CurrentUser;
+                myBinding.StringFormat = "{0:N2} €";
                 // Bind the new data source to the myText TextBlock control's Text dependency property.
                 BoxNow.SetBinding(TextBlock.TextProperty, myBinding);
 

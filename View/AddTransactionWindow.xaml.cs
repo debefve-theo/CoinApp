@@ -74,7 +74,7 @@ namespace View
                 {
                     ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance - currentTransaction.Quantity;
                     ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE - (currentTransaction.Quantity * ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Details.Price);
-                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.TotalAchat = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.TotalAchat - currentTransaction.Total;
+                    ViewModel.UpdateTotalAcahat();
                 }
                 else
                 {

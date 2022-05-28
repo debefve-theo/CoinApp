@@ -13,6 +13,7 @@ namespace ViewModel
         public TransactionViewModel CurrentTransaction { get; set; }
         public static CryptoViewModel? CurrentCrypto { get; set; }
         public UserViewModel? CurrentUser { get; set; }
+        public String FolderPath { get; set; }
 
         public ObservableCollection<CryptoViewModel> ItemsC { get; set; }
         public ObservableCollection<TransactionViewModel> ItemsT { get; set; }
@@ -82,8 +83,8 @@ namespace ViewModel
 
         public void MainList()
         {
-            CurrentUser.Own.SoldeNow = 0;
-            CurrentUser.Own.TotalAchat = 0;
+            CurrentUser.SoldeNow = 0;
+            CurrentUser.TotalAchat = 0;
 
             foreach (CryptoViewModel element in ItemsC)
             {
@@ -91,9 +92,9 @@ namespace ViewModel
                 {
                     ItemsM.Add(element);
                     //SoldeNow = SoldeNow + element.Own.BalanceE;
-                    CurrentUser.Own.SoldeNow = CurrentUser.Own.SoldeNow + element.Own.BalanceE;
+                    CurrentUser.SoldeNow = CurrentUser.SoldeNow + element.Own.BalanceE;
                     //TotalAchat = TotalAchat + element.Own.TotalAchat;
-                    CurrentUser.Own.TotalAchat = CurrentUser.Own.TotalAchat + element.Own.TotalAchat;
+                    CurrentUser.TotalAchat = CurrentUser.TotalAchat + element.Own.TotalAchat;
                 }
             }
         }
@@ -102,6 +103,14 @@ namespace ViewModel
         {
             ItemsM.Clear();
             MainList();
+        }
+
+        public void UpdateTotalAcahat()
+        {
+            foreach (TransactionViewModel element in ItemsT)
+            {
+                CurrentUser.TotalAchat = CurrentUser.TotalAchat + element.Total;
+            }
         }
 
         public void Save()

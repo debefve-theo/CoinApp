@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,8 @@
 
   <ItemGroup>
     <PackageReference Include="FluentWPF" Version="0.10.2" />
+    <PackageReference Include="LiveCharts" Version="0.9.7" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +36,10 @@
     <Resource Include="Img\IconView.png" />
     <Resource Include="Img\IconX.png" />
     <Resource Include="Img\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Converter\" />
   </ItemGroup>
 
 </Project>

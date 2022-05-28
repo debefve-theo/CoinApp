@@ -78,8 +78,8 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                         <Label Content="Fichiers de sauvegardes :" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                        <TextBlock Text="C:\Users\Documents\C#\" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                        <Button Content="..." Width="20" Margin="15,0,0,0"/>
+                        <TextBlock x:Name="TextBlockFile" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Width="215"/>
+                        <Button x:Name="FileButton" Content="..." Width="20" Margin="15,0,0,0" Click="FileButton_Click" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>
@@ -87,11 +87,11 @@
             <TabItem Header="Mot de passe" FontWeight="Bold">
                 <StackPanel>
                     <Label Content="Ancien mot de passe :" Margin="0,5,0,0"/>
-                    <PasswordBox Margin="5,0,0,5"/>
+                    <PasswordBox x:Name="OldPassField" Margin="5,0,0,5"/>
                     <Label Content="Nouveau mot de passe :"/>
-                    <PasswordBox/>
+                    <PasswordBox x:Name="NewPassField"/>
                     <Label Content="Confirmer le nouveau mot de passe :"/>
-                    <PasswordBox/>
+                    <PasswordBox x:Name="NewPassConfField"/>
                 </StackPanel>
             </TabItem>
 
@@ -109,9 +109,9 @@
         </TabControl>
         <!-- Action button -->
         <DockPanel LastChildFill="False" Background="#FFDFE6E9" DockPanel.Dock="Bottom" Height="50">
-            <Button x:Name="BtnAnuler" Style="{StaticResource ButtonRed}" Content="Anuler" Margin="0,0,30,0"/>
-            <Button x:Name="BtnOk" Style="{StaticResource ButtonBlue}" Content="Ok" Margin="0,0,18,0"/>
-            <Button x:Name="BtnAppliquer" Style="{StaticResource ButtonBlue}" Content="Appliquer" Margin="0,0,18,0"/>
+            <Button x:Name="BtnAnuler" Style="{StaticResource ButtonRed}" Content="Anuler" Margin="0,0,30,0" Click="BtnAnuler_Click"/>
+            <Button x:Name="BtnOk" Style="{StaticResource ButtonBlue}" Content="Ok" Margin="0,0,18,0" Click="BtnOk_Click"/>
+            <Button x:Name="BtnAppliquer" Style="{StaticResource ButtonBlue}" Content="Appliquer" Margin="0,0,18,0" Click="BtnAppliquer_Click"/>
         </DockPanel>
     </DockPanel>
 </Window>

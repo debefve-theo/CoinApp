@@ -44,17 +44,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(Password));
             }
         }
-
-        public UserOwn Own
-        {
-            get => this._model.Own;
-            set
-            {
-                this._model.Own = value;
-                this.NotifyPropertyChanged(nameof(Own));
-            }
-        }
-        /*
         public double SoldeNow
         {
             get => this._model.SoldeNow;
@@ -62,6 +51,7 @@ namespace ViewModel
             {
                 this._model.SoldeNow = value;
                 this.NotifyPropertyChanged(nameof(SoldeNow));
+                this.NotifyPropertyChanged(nameof(GainPerte));
             }
         }
 
@@ -72,19 +62,15 @@ namespace ViewModel
             {
                 this._model.TotalAchat = value;
                 this.NotifyPropertyChanged(nameof(TotalAchat));
+                this.NotifyPropertyChanged(nameof(GainPerte));
             }
         }
 
         public double GainPerte
         {
-            get => this._model.GainPerte;
-            set
-            {
-                this._model.GainPerte = value;
-                this.NotifyPropertyChanged(nameof(GainPerte));
-            }
+            get { return _model.GainPerte; }
         }
-        */
+        
         #endregion
     }
 }

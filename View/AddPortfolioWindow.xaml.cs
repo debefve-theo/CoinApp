@@ -46,12 +46,8 @@ namespace View
                     Id = 999,
                     UserName = usr,
                     Password = pswd,
-                    Own = new UserOwn()
-                    {
-                        TotalAchat = 0,
-                        SoldeNow = 0,
-                        GainPerte = 0
-                    }
+                    TotalAchat = 0,
+                    SoldeNow = 0
                 });
 
                 ViewModel.ItemsU.Add(U);
