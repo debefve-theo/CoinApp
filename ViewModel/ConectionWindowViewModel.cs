@@ -19,51 +19,20 @@ namespace ViewModel
                 File.Create("./DataUser.json");
             }
 
-            // Serialize
-            /*
+            // Création de la liste
+            this.ItemsU = new ObservableCollection<UserViewModel>();
+
             UserViewModel U1 = new UserViewModel(new User()
                 {
                     Id = 1,
                     UserName = "Admin",
-                    Password = "Password"
+                    Password = "Password",
+                    SoldeNow = 0,
+                    TotalAchat = 0
                 }
             );
 
-            string jsonString1 = JsonConvert.SerializeObject(U1);
-
-            UserViewModel U2 = new UserViewModel(new User()
-                {
-                    Id = 2,
-                    UserName = "Theo",
-                    Password = "Ethereum"
-                }
-            );
-
-            string jsonString2 = JsonConvert.SerializeObject(U2);
-
-            ObservableCollection<UserViewModel> list = new ObservableCollection<UserViewModel>();
-
-            list.Add(U1);
-            list.Add(U2);
-
-            String collectionResult = JsonConvert.SerializeObject(list);
-            */
-
-            // Deserialize
-            /*
-            ObservableCollection<UserViewModel> newList = JsonConvert.DeserializeObject<ObservableCollection<UserViewModel>>(collectionResult);
-            */
-
-            // Test Data
-            
-            UserViewModel U1 = new UserViewModel(new User()
-            {
-                Id = 1,
-                UserName = "Admin",
-                Password = "Password",
-                TotalAchat = 0,
-                SoldeNow = 0
-            });
+            this.ItemsU.Add(U1);
 
             UserViewModel U2 = new UserViewModel(new User()
             {
@@ -74,10 +43,20 @@ namespace ViewModel
                 SoldeNow = 0
             });
 
-            this.ItemsU = new ObservableCollection<UserViewModel>();
-
-            this.ItemsU.Add(U1);
             this.ItemsU.Add(U2);
+
+            // Serialize
+            //string jsonString = JsonSerializer.Serialize(ItemsU);
+
+            // Deserialize
+            /*List<User>? users = JsonSerializer.Deserialize<List<User>>(jsonString);
+            if (users != null)
+            {
+                foreach (User u in users)
+                {
+                    ItemsU.Add(new UserViewModel(u));
+                }
+            }*/
         }
     }
 }

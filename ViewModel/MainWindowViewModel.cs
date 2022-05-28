@@ -83,33 +83,14 @@ namespace ViewModel
 
         public void MainList()
         {
-            CurrentUser.SoldeNow = 0;
-            CurrentUser.TotalAchat = 0;
+            ItemsM.Clear();
 
             foreach (CryptoViewModel element in ItemsC)
             {
-                if (element.Own is not null)  
+                if (element.Own is not null)
                 {
                     ItemsM.Add(element);
-                    //SoldeNow = SoldeNow + element.Own.BalanceE;
-                    CurrentUser.SoldeNow = CurrentUser.SoldeNow + element.Own.BalanceE;
-                    //TotalAchat = TotalAchat + element.Own.TotalAchat;
-                    CurrentUser.TotalAchat = CurrentUser.TotalAchat + element.Own.TotalAchat;
                 }
-            }
-        }
-
-        public void UpdateMainList()
-        {
-            ItemsM.Clear();
-            MainList();
-        }
-
-        public void UpdateTotalAcahat()
-        {
-            foreach (TransactionViewModel element in ItemsT)
-            {
-                CurrentUser.TotalAchat = CurrentUser.TotalAchat + element.Total;
             }
         }
 
