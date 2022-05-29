@@ -1,5 +1,7 @@
 ﻿// Copyright © 2022 - Theo Debefve
 
+using System.Collections.ObjectModel;
+
 namespace Model
 {
     public class User

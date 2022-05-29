@@ -1,5 +1,6 @@
 ﻿// Copyright © 2022 - Theo Debefve
 
+using System.Collections.ObjectModel;
 using Model;
 
 namespace ViewModel
@@ -70,7 +71,7 @@ namespace ViewModel
         {
             get { return _model.GainPerte; }
         }
-        
+
         #endregion
     }
 }

@@ -2,7 +2,7 @@
 {
     public class CryptoOwn
     {
-        public CryptoOwn(bool o, double b, double e, double t, double g, double a)
+        /*public CryptoOwn(bool o, double b, double e, double t, double g, double a)
         {
             OwnB = o;
             Balance = b;
@@ -10,7 +10,7 @@
             TotalAchat = t;
             Gains = g;
             Allocation = a;
-        }
+        }*/
 
         public bool OwnB { get; set; }
         public double Balance { get; set; }

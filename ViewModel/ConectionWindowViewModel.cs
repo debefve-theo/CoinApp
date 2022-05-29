@@ -33,45 +33,20 @@ namespace ViewModel
             }
 
             // Verif exist fichier + creation ***
-            if (!File.Exists(Path + "\\dataU.json"))
+            if (!File.Exists(Path + "\\data.json"))
             {
-                File.Create(Path + "\\dataU.json");
+                File.Create(Path + "\\data.json");
             }
 
             // Création de la liste
             this.ItemsU = new ObservableCollection<UserViewModel>();
 
             OpenFileU();
-
-            /*
-            UserViewModel U1 = new UserViewModel(new User()
-                {
-                    Id = 1,
-                    UserName = "Admin",
-                    Password = "Password",
-                    SoldeNow = 0,
-                    TotalAchat = 0
-                }
-            );
-
-            this.ItemsU.Add(U1);
-
-            UserViewModel U2 = new UserViewModel(new User()
-            {
-                Id = 2,
-                UserName = "Theo",
-                Password = "Ethereum",
-                TotalAchat = 0,
-                SoldeNow = 0
-            });
-
-            this.ItemsU.Add(U2);
-            */
         }
 
         public void OpenFileU()
         {
-            string jsonString1 = File.ReadAllText(Path + "\\dataU.json");
+            string jsonString1 = File.ReadAllText(Path + "\\data.json");
 
             if (jsonString1 != "")
             {
@@ -88,8 +63,8 @@ namespace ViewModel
 
         public void SaveFileU()
         {
-            string jsonString2 = System.Text.Json.JsonSerializer.Serialize(ItemsU);
-            File.WriteAllText(Path + "\\dataU.json", jsonString2);
+            string jsonString1 = System.Text.Json.JsonSerializer.Serialize(ItemsU);
+            File.WriteAllText(Path + "\\data.json", jsonString1);
         }
     }
 }

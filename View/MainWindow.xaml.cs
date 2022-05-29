@@ -22,6 +22,12 @@ namespace View
             this.DataContext = ViewModel;
         }
 
+        protected override void OnClosed(EventArgs e)
+        {
+            ViewModel.SaveFileT();
+            base.OnClosed(e);
+        }
+
         #region BUTTON MENU
         private void BtnMenuHome_Click(object sender, RoutedEventArgs e)
         {
@@ -63,7 +69,7 @@ namespace View
 
         private void BtnMenuDeconexion_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.Save();
+            //ViewModel.Save();
             ConectionWindow windowConection = new();
             windowConection.Show();
             Close();

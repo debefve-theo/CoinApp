@@ -71,7 +71,12 @@ namespace View
                 else // Possible d'acheter
                 {
                     double i = CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price;
-                    CurrentTransaction.Cryptocurrency.Own = new CryptoOwn(true, CurrentTransaction.Quantity, i, CurrentTransaction.Total, 0, 0);
+                    //CurrentTransaction.Cryptocurrency.Own = CryptoOwn(true, CurrentTransaction.Quantity, i, CurrentTransaction.Total, 0, 0);
+                    CurrentTransaction.Cryptocurrency.Own.OwnB = true;
+                    CurrentTransaction.Cryptocurrency.Own.Balance = CurrentTransaction.Quantity;
+                    CurrentTransaction.Cryptocurrency.Own.BalanceE = i;
+                    CurrentTransaction.Cryptocurrency.Own.TotalAchat = CurrentTransaction.Total;
+                    // ********
                     ViewModel.CurrentUser.SoldeNow = ViewModel.CurrentUser.SoldeNow + (CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price);
                     ViewModel.CurrentUser.TotalAchat = ViewModel.CurrentUser.TotalAchat + CurrentTransaction.Total;
                 }
