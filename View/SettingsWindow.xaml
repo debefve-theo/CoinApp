@@ -81,6 +81,7 @@
                         <TextBlock x:Name="TextBlockFile" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Width="215"/>
                         <Button x:Name="FileButton" Content="..." Width="20" Margin="15,0,0,0" Click="FileButton_Click" HorizontalAlignment="Right"/>
                     </StackPanel>
+                    <Label Content="Attention les fichiers seront déplacé pour tout les utilisateurs" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,0"/>
                 </StackPanel>
             </TabItem>
 
@@ -111,7 +112,6 @@
         <DockPanel LastChildFill="False" Background="#FFDFE6E9" DockPanel.Dock="Bottom" Height="50">
             <Button x:Name="BtnAnuler" Style="{StaticResource ButtonRed}" Content="Anuler" Margin="0,0,30,0" Click="BtnAnuler_Click"/>
             <Button x:Name="BtnOk" Style="{StaticResource ButtonBlue}" Content="Ok" Margin="0,0,18,0" Click="BtnOk_Click"/>
-            <Button x:Name="BtnAppliquer" Style="{StaticResource ButtonBlue}" Content="Appliquer" Margin="0,0,18,0" Click="BtnAppliquer_Click"/>
         </DockPanel>
     </DockPanel>
 </Window>

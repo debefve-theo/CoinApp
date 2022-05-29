@@ -13,6 +13,7 @@ namespace View
     public partial class SettingsWindow : Window
     {
         public MainWindowViewModel ViewModel { get; set; }
+        private string _tempPath = "";
 
         public SettingsWindow(MainWindowViewModel vm)
         {
@@ -20,24 +21,18 @@ namespace View
             ViewModel = vm;
             this.DataContext = ViewModel;
 
-            TextBlockFile.Text = ViewModel.FolderPath;
-        }
-
-        private void BtnAppliquer_Click(object sender, RoutedEventArgs e)
-        {
-
-            bool cp = ChangePassword();
-
-            if (cp)
-            {
-                // réécrire dans le fichier
-                int i = 0;
-            }
+            TextBlockFile.Text = ViewModel.Path;
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
+            // Path
+            if (_tempPath != "")
+            {
+                UpdatePath();
+            }
 
+            // Password
             bool cp = ChangePassword();
 
             if (cp)
@@ -76,29 +71,19 @@ namespace View
                     MessageBox.Show("Ancien mot de passe incorecte !");
                 }
             }
-            else
-            {
-                MessageBox.Show("Vide !");
-            }
 
             return false;
         }
 
         private void FileButton_Click(object sender, RoutedEventArgs e)
         {
-            /*OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-            Nullable<bool> result = openFileDialog.ShowDialog();*/
-
             FolderBrowserDialog openFolderDialog = new FolderBrowserDialog();
             DialogResult result = openFolderDialog.ShowDialog();
 
             if (result == System.Windows.Forms.DialogResult.OK)
             {
                 string directoryName = openFolderDialog.SelectedPath;
-                ViewModel.FolderPath = directoryName;
+                _tempPath = directoryName;
 
                 if (directoryName.Length >= 33)
                 {
@@ -112,6 +97,21 @@ namespace View
             {
 
             }
+        }
+
+        private void UpdatePath()
+        {
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey("Software");
+            RegistryKey PathKey = rk.CreateSubKey("CoinApp");
+
+            RegistryKey pk = PathKey;
+
+            pk.SetValue("Path", _tempPath);
+
+            System.IO.File.Move(ViewModel.Path + "\\dataU.json", _tempPath + "\\dataU.json");
+            System.IO.File.Move(ViewModel.Path + "\\dataT.json", _tempPath + "\\dataT.json");
+
+            ViewModel.Path = _tempPath;
         }
     }
 }

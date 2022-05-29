@@ -27,6 +27,8 @@
             <Setter Property="Height" Value="25"/>
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#74b9ff"/>
+            <Setter Property="Foreground" Value="white"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -105,14 +107,14 @@
                     <Label Content="Mot de passe :" Grid.Column="0" Grid.Row="1" Margin="30,0,0,0"/>
                     <PasswordBox x:Name="FieldPswd" Width="180" Height="20.62" FontSize="14" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,30,0" BorderThickness="0,0,0,1" BorderBrush="Black"/>
                 </Grid>
-                <Button x:Name="ButtonConection" Style="{StaticResource normalB}" Content="Connexion" HorizontalAlignment="Center" Margin="0,35,0,25" Background="#FF0984E3" Foreground="White" BorderThickness="0,0,0,0" Width="100" Height="30" Click="ButtonConection_Click"/>
+                <Button x:Name="ButtonConection" Style="{StaticResource normalB}" Content="Connexion" HorizontalAlignment="Center" Margin="0,35,0,25" BorderThickness="0,0,0,0" Width="100" Height="30" Click="ButtonConection_Click"/>
             </StackPanel>
         </Border>
         <!-- New portfolio container -->
         <Border Width="365" VerticalAlignment="Top" Margin="0,30,0,0" DockPanel.Dock = "Top" Background="White" CornerRadius="15" HorizontalAlignment="Center">
             <WrapPanel HorizontalAlignment="Center" Margin="0,20,0,20">
                 <TextBlock Text="Ou créez un nouveau" FontSize="14" FontWeight="Bold" Margin="0,2,20,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Button x:Name="ButtonNew" Style="{StaticResource normalB}" Content="Nouveau" Click="ButtonNew_Click" Width="80" Height="25" Background="#FF0984E3" Foreground="White" BorderThickness="0,0,0,0"/>
+                <Button x:Name="ButtonNew" Style="{StaticResource normalB}" Content="Nouveau" Click="ButtonNew_Click" Width="80" Height="25" BorderThickness="0,0,0,0"/>
             </WrapPanel>
         </Border>
         <!-- Copyright -->

@@ -3,6 +3,7 @@
 using Model;
 using System.Collections.ObjectModel;
 using ClassLibrary;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 
 namespace ViewModel
@@ -13,7 +14,7 @@ namespace ViewModel
         public TransactionViewModel CurrentTransaction { get; set; }
         public static CryptoViewModel? CurrentCrypto { get; set; }
         public UserViewModel? CurrentUser { get; set; }
-        public String FolderPath { get; set; }
+        public string Path { get; set; }
 
         public ObservableCollection<CryptoViewModel> ItemsC { get; set; }
         public ObservableCollection<TransactionViewModel> ItemsT { get; set; }
@@ -26,16 +27,43 @@ namespace ViewModel
         {
             CurrentUser = user;
 
+            // Registre
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey("Software");
+            RegistryKey PathKey = rk.CreateSubKey("CoinApp");
+
+            RegistryKey pk = PathKey;
+
+            if (pk.GetValue("Path") == null)
+            {
+                pk.SetValue("Path", "./");
+                Path = pk.GetValue("Path").ToString();
+            }
+            else
+            {
+                Path = pk.GetValue("Path").ToString();
+            }
+
             ItemsC = GetCryptoList();
 
             // Verif exist fichier + creation ***
-            if (!File.Exists("./DataTransaction.json"))
+            if (!File.Exists(Path + "\\dataT.json"))
             {
-                File.Create("./DataTransaction.json");
+                File.Create(Path + "\\dataT.json");
             }
 
-            // Crée la liste de transaction
+            // Transaction
             this.ItemsT = new ObservableCollection<TransactionViewModel>();
+
+            //string jsonString = File.ReadAllText(Path + "dataT.json");
+
+            /*List<Transaction>? transactions = JsonSerializer.Deserialize<List<Transaction>>(jsonString);
+            if (transactions != null)
+            {
+                foreach (Transaction t in transactions)
+                {
+                    ItemsT.Add(new TransactionViewModel(t));
+                }
+            }*/
 
             // Crée la liste de résumé
             this.ItemsM = new ObservableCollection<CryptoViewModel>();
@@ -96,8 +124,8 @@ namespace ViewModel
 
         public void Save()
         {
-            string jsonS = JsonConvert.SerializeObject(CurrentTransaction, Formatting.Indented);
-            var jsonD = JsonConvert.DeserializeObject(jsonS);
+            /*string jsonString = JsonSerializer.Serialize(ItemsT);
+            File.WriteAllText("./DataTransaction.json", jsonString);*/
         }
 
         #endregion

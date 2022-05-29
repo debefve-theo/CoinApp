@@ -9,7 +9,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="&lt;oin - Nouveau Portfolio" Height="350" Width="500"
+        Title="&lt;oin - Nouveau Portfolio" Height="310" Width="500"
         ResizeMode="NoResize"
         FontFamily="Segoe UI"
         Foreground="#2d3436"

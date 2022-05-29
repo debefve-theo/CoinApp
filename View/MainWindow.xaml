@@ -7,8 +7,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-        xmlns:local="clr-namespace:View"
+        xmlns:view="clr-namespace:View"
         mc:Ignorable="d"
         Title="Home" Height="700" Width="1100"
         FontFamily="Segoe UI"
@@ -17,6 +16,7 @@
         Icon="/Img/icon.png">
     <!-- Ressources -->
     <Window.Resources>
+        <view:BoolToStringConverter x:Key="VConv"/>
         <Style TargetType="{x:Type Button}" x:Key="MenuButton">
             <Setter Property="Background" Value="#dfe6e9"/>
             <Setter Property="BorderBrush" Value="#dfe6e9"/>
@@ -176,9 +176,9 @@
         <Border Grid.Column="1" Background="#dfe6e9" CornerRadius="15,0,0,0">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="ColHome" Width="*"/>
+                    <ColumnDefinition x:Name="ColHome" Width="0"/>
                     <ColumnDefinition x:Name="ColTransaction" Width="0"/>
-                    <ColumnDefinition x:Name="ColRepartition" Width="0"/>
+                    <ColumnDefinition x:Name="ColRepartition" Width="*"/>
                     <ColumnDefinition x:Name="ColWatchlist" Width="0"/>
                 </Grid.ColumnDefinitions>
 
@@ -289,8 +289,8 @@
 
                             <DataGrid x:Name="DataGridTransaction" GridLinesVisibility="Horizontal"  AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="True" ItemsSource="{Binding ItemsT}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#2d3436" Margin="15,15,15,15">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="A/V" Binding="{Binding Av}" Width="5*"/>
-                                    <DataGridTextColumn Header="Crypto" Binding="{Binding Cryptocurrency.Symbol}" Width="10*"/>
+                                    <DataGridTextColumn Header="" Binding="{Binding Av, Converter={StaticResource VConv}}" Width="8*"/>
+                                    <DataGridTextColumn Header="Crypto" Binding="{Binding Cryptocurrency.Symbol}" Width="7*"/>
                                     <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}" Width="10*"/>
                                     <DataGridTextColumn Header="Prix par token" Binding="{Binding PricePerToken}" Width="12*"/>
                                     <DataGridTextColumn Header="Prix" Binding="{Binding Price, StringFormat={}{0:N2}}" Width="10*"/>
@@ -314,6 +314,7 @@
 
                     <!-- List -->
                     <Border Background="white" CornerRadius="15" Margin="40,25,40,0" Height="560" Padding="0,0,0,0">
+                        <Image Width="318" Source="/soon.jpg"/>
                     </Border>
                 </StackPanel>
 

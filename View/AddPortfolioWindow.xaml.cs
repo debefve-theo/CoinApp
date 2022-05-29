@@ -52,6 +52,8 @@ namespace View
 
                 ViewModel.ItemsU.Add(U);
 
+                ViewModel.SaveFileU();
+
                 Close();
             }
             else
