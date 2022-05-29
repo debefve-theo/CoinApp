@@ -59,6 +59,13 @@ namespace View
                     {
                         ViewModel.CurrentUser.Password = NewPassField.Password;
                         MessageBox.Show("Ok !" + "--" + ViewModel.CurrentUser.Password + "--");
+                        foreach (UserViewModel u in ViewModel.ItemsU)
+                        {
+                            if (u.UserName == ViewModel.CurrentUser.UserName)
+                            {
+                                u.Password = ViewModel.CurrentUser.Password;
+                            }
+                        }
                         return true;
                     }
                     else

@@ -46,11 +46,11 @@ namespace ViewModel
 
         public void OpenFileU()
         {
-            string jsonString1 = File.ReadAllText(Path + "\\data.json");
+            string jsonString = File.ReadAllText(Path + "\\data.json");
 
-            if (jsonString1 != "")
+            if (jsonString != "")
             {
-                List<User>? users = System.Text.Json.JsonSerializer.Deserialize<List<User>>(jsonString1);
+                List<User>? users = System.Text.Json.JsonSerializer.Deserialize<List<User>>(jsonString);
                 if (users != null)
                 {
                     foreach (User u in users)

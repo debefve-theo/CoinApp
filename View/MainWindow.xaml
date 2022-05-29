@@ -143,16 +143,16 @@
                         <TextBlock x:Name="BtnMenuTransactionTxt" Text="Transaction" FontFamily="Segoe UI" VerticalAlignment="Center" Margin="10,0,20,0"/>
                     </StackPanel>
                 </Button>
-                <Button x:Name="BtnMenuRepartition" Style="{StaticResource ButtonGray}" Margin="0,0,0,45" Click="BtnMenuRepartition_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xEB05;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,10,0"/>
-                        <TextBlock x:Name="BtnMenuRepartitionTxt" Text="Répartition" FontFamily="Segoe UI" VerticalAlignment="Center" Margin="10,0,20,0"/>
-                    </StackPanel>
-                </Button>
-                <Button x:Name="BtnMenuWatchlist" Style="{StaticResource ButtonGray}" Margin="0,0,0,170" Click="BtnMenuWatchlist_Click">
+                <Button x:Name="BtnMenuWatchlist" Style="{StaticResource ButtonGray}" Margin="0,0,0,45" Click="BtnMenuWatchlist_Click">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="&#xE9D5;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,10,0"/>
                         <TextBlock x:Name="BtnMenuWatchlistTxt" Text="Watchlist" FontFamily="Segoe UI" VerticalAlignment="Center" Margin="10,0,20,0"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="BtnMenuAPropos" Style="{StaticResource ButtonGray}" Margin="0,0,0,170" Click="BtnMenuAPropos_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xE77B;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,10,0"/>
+                        <TextBlock x:Name="BtnMenuAProposTxt" Text="A Propos" FontFamily="Segoe UI" VerticalAlignment="Center" Margin="10,0,20,0"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -176,9 +176,8 @@
         <Border Grid.Column="1" Background="#dfe6e9" CornerRadius="15,0,0,0">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="ColHome" Width="0"/>
+                    <ColumnDefinition x:Name="ColHome" Width="*"/>
                     <ColumnDefinition x:Name="ColTransaction" Width="0"/>
-                    <ColumnDefinition x:Name="ColRepartition" Width="*"/>
                     <ColumnDefinition x:Name="ColWatchlist" Width="0"/>
                 </Grid.ColumnDefinitions>
 
@@ -287,7 +286,7 @@
                                 <RowDefinition Height="10*"/>
                             </Grid.RowDefinitions>
 
-                            <DataGrid x:Name="DataGridTransaction" GridLinesVisibility="Horizontal"  AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="True" ItemsSource="{Binding ItemsT}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#2d3436" Margin="15,15,15,15">
+                            <DataGrid x:Name="DataGridTransaction" GridLinesVisibility="Horizontal"  AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="True" ItemsSource="{Binding ItemsTU}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#2d3436" Margin="15,15,15,15">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="" Binding="{Binding Av, Converter={StaticResource VConv}}" Width="8*"/>
                                     <DataGridTextColumn Header="Crypto" Binding="{Binding Cryptocurrency.Symbol}" Width="7*"/>
@@ -307,19 +306,8 @@
                     </Border>
                 </StackPanel>
 
-                <!-- ########## Repartition ########## -->
-                <StackPanel Grid.Column="2">
-                    <!-- Header -->
-                    <TextBlock Grid.Column="0" Text="Repartition" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="40,30,0,0"/>
-
-                    <!-- List -->
-                    <Border Background="white" CornerRadius="15" Margin="40,25,40,0" Height="560" Padding="0,0,0,0">
-                        <Image Width="318" Source="/soon.jpg"/>
-                    </Border>
-                </StackPanel>
-
                 <!-- ########## Watchlist ########## -->
-                <StackPanel Grid.Column="3">
+                <StackPanel Grid.Column="2">
 
                     <!-- Header -->
                     <TextBlock Grid.Column="0" Text="Top 50" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="40,30,0,0"/>

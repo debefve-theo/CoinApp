@@ -25,6 +25,16 @@ namespace ViewModel
             }
         }
 
+        public string UserName
+        {
+            get => this._model.UserName;
+            set
+            {
+                this._model.UserName = value;
+                this.NotifyPropertyChanged(nameof(UserName));
+            }
+        }
+
         public bool Av
         {
             get => this._model.Av;

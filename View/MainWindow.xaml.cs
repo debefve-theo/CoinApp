@@ -33,7 +33,6 @@ namespace View
         {
             ColHome.Width = new GridLength(1, GridUnitType.Star);
             ColTransaction.Width = new GridLength(0);
-            ColRepartition.Width = new GridLength(0);
             ColWatchlist.Width = new GridLength(0);
         }
 
@@ -41,15 +40,6 @@ namespace View
         {
             ColHome.Width = new GridLength(0);
             ColTransaction.Width = new GridLength(1, GridUnitType.Star);
-            ColRepartition.Width = new GridLength(0);
-            ColWatchlist.Width = new GridLength(0);
-        }
-
-        private void BtnMenuRepartition_Click(object sender, RoutedEventArgs e)
-        {
-            ColHome.Width = new GridLength(0);
-            ColTransaction.Width = new GridLength(0);
-            ColRepartition.Width = new GridLength(1, GridUnitType.Star);
             ColWatchlist.Width = new GridLength(0);
         }
 
@@ -57,8 +47,13 @@ namespace View
         {
             ColHome.Width = new GridLength(0);
             ColTransaction.Width = new GridLength(0);
-            ColRepartition.Width = new GridLength(0);
             ColWatchlist.Width = new GridLength(1, GridUnitType.Star);
+        }
+
+        private void BtnMenuAPropos_Click(object sender, RoutedEventArgs e)
+        {
+            AProposWindow windowAPropos = new();
+            windowAPropos.ShowDialog();
         }
 
         private void BtnMenuParametre_Click(object sender, RoutedEventArgs e)
@@ -93,8 +88,8 @@ namespace View
                 ColContent.Width = new GridLength(93, GridUnitType.Star);
                 BtnMenuHomeTxt.Text = null;
                 BtnMenuTransactionTxt.Text = null;
-                BtnMenuRepartitionTxt.Text = null;
                 BtnMenuWatchlistTxt.Text = null;
+                BtnMenuAProposTxt.Text = null;
                 BtnMenuParametreTxt.Text = null;
                 BtnMenuDeconexionTxt.Text = null;
                 _reduce = false;
@@ -105,8 +100,8 @@ namespace View
                 ColContent.Width = new GridLength(80, GridUnitType.Star);
                 BtnMenuHomeTxt.Text = "Home";
                 BtnMenuTransactionTxt.Text = "Transaction";
-                BtnMenuRepartitionTxt.Text = "Répartition";
                 BtnMenuWatchlistTxt.Text = "Watchlist";
+                BtnMenuAProposTxt.Text = "A Propos";
                 BtnMenuParametreTxt.Text = "Paramètres";
                 BtnMenuDeconexionTxt.Text = "Déconexion";
                 _reduce = true;

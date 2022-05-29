@@ -95,18 +95,6 @@
                     <PasswordBox x:Name="NewPassConfField"/>
                 </StackPanel>
             </TabItem>
-
-            <TabItem Header="Affichage" FontWeight="Bold">
-                <StackPanel>
-                    <Label Content="Langues :" Margin="0,5,0,0"/>
-                    <ComboBox Margin="5,0,0,5" HorizontalAlignment="Left" Width="150"/>
-                    <Label Content="Devise :"/>
-                    <ComboBox Margin="5,0,0,5" HorizontalAlignment="Left" Width="150"/>
-                    <Label Content="Thème :"/>
-                    <CheckBox Content="Clair" Margin="20,0,0,0" IsChecked="True"/>
-                    <CheckBox Content="Sombre" Margin="20,3,0,0"/>
-                </StackPanel>
-            </TabItem>
         </TabControl>
         <!-- Action button -->
         <DockPanel LastChildFill="False" Background="#FFDFE6E9" DockPanel.Dock="Bottom" Height="50">

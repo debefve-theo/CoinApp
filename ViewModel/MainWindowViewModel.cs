@@ -17,6 +17,7 @@ namespace ViewModel
 
         public ObservableCollection<CryptoViewModel> ItemsC { get; set; }
         public ObservableCollection<TransactionViewModel> ItemsT { get; set; }
+        public ObservableCollection<TransactionViewModel> ItemsTU { get; set; }
         public ObservableCollection<UserViewModel> ItemsU { get; set; }
         public ObservableCollection<CryptoViewModel> ItemsM { get; set; }
 
@@ -47,17 +48,20 @@ namespace ViewModel
             }
 
             // Verif exist fichier + creation ***
+            this.ItemsT = new ObservableCollection<TransactionViewModel>();
+            this.ItemsTU = new ObservableCollection<TransactionViewModel>();
+
             if (!File.Exists(Path + "\\dataT.json"))
             {
                 File.Create(Path + "\\dataT.json");
             }
+            else
+            {
+                OpenFileT();
+            }
 
             // Crypto
             ItemsC = GetCryptoList();
-
-            // Transaction
-            this.ItemsT = new ObservableCollection<TransactionViewModel>();
-            OpenFileT();
 
             // Liste Acceuil
             this.ItemsM = new ObservableCollection<CryptoViewModel>();
@@ -117,7 +121,7 @@ namespace ViewModel
 
             foreach (CryptoViewModel element in ItemsC)
             {
-                if (element.Own is not null)
+                if (element.Own.OwnB is true)
                 {
                     ItemsM.Add(element);
                 }
@@ -126,6 +130,7 @@ namespace ViewModel
 
         public void OpenFileT()
         {
+            // File Transaction
             string jsonString = File.ReadAllText(Path + "\\dataT.json");
 
             if (jsonString != "")
@@ -136,6 +141,29 @@ namespace ViewModel
                     foreach (Transaction t in transactions)
                     {
                         ItemsT.Add(new TransactionViewModel(t));
+                    }
+                }
+
+                foreach (TransactionViewModel t in ItemsT)
+                {
+                    if (t.UserName == CurrentUser.UserName)
+                    {
+                        ItemsTU.Add(t);
+                    }
+                }
+            }
+
+            // File User
+            string jsonString1 = File.ReadAllText(Path + "\\data.json");
+
+            if (jsonString1 != "")
+            {
+                List<User>? users = System.Text.Json.JsonSerializer.Deserialize<List<User>>(jsonString1);
+                if (users != null)
+                {
+                    foreach (User u in users)
+                    {
+                        ItemsU.Add(new UserViewModel(u));
                     }
                 }
             }

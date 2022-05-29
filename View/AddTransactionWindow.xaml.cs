@@ -24,6 +24,7 @@ namespace View
         {
             CurrentTransaction = GetData();
             ViewModel.ItemsT.Add(CurrentTransaction);
+            ViewModel.ItemsTU.Add(CurrentTransaction);
             UpdateData();
             ViewModel.MainList();
             Close();
@@ -33,6 +34,7 @@ namespace View
         {
             CurrentTransaction = GetData();
             ViewModel.ItemsT.Add(CurrentTransaction);
+            ViewModel.ItemsTU.Add(CurrentTransaction);
             UpdateData();
             ViewModel.MainList();
             CleanField();
@@ -48,6 +50,7 @@ namespace View
             TransactionViewModel currentTransaction = new TransactionViewModel(new Transaction()
             {
                 Id = 1000,
+                UserName = ViewModel.CurrentUser.UserName,
                 Av = (bool)RadioButtonV.IsChecked,
                 Quantity = float.Parse(TextBoxQuantity.Text, CultureInfo.InvariantCulture.NumberFormat),
                 PricePerToken = float.Parse(TextBoxPrice.Text, CultureInfo.InvariantCulture.NumberFormat),
@@ -62,7 +65,7 @@ namespace View
 
         private void UpdateData()
         {
-            if (((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own is null)
+            if (((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.OwnB is false)
             {
                 if (CurrentTransaction.Av is true) // Impossible de vendre
                 {
