@@ -2,6 +2,7 @@
 
 using Model;
 using System.Collections.ObjectModel;
+using System.Reflection.Metadata.Ecma335;
 using ClassLibrary;
 using Microsoft.Win32;
 using Newtonsoft.Json;
@@ -63,6 +64,38 @@ namespace ViewModel
             // Crypto
             ItemsC = GetCryptoList();
 
+            foreach (TransactionViewModel t in ItemsT)
+            {
+                if (t.UserName == CurrentUser.UserName)
+                {
+                    foreach (CryptoViewModel c in ItemsC)
+                    {
+                        if (t.Cryptocurrency.Id == c.Id)
+                        {
+                            if (t.Av == false)
+                            {
+                                c.Own.OwnB = true;
+                                c.Own.Balance = c.Own.Balance + t.Quantity;
+                                c.Own.BalanceE = c.Own.BalanceE + (t.Quantity * c.Details.Price);
+                                c.Own.TotalAchat = c.Own.TotalAchat + t.Total;
+                                c.Own.Gains = c.Own.BalanceE - c.Own.TotalAchat;
+                            }
+                            else
+                            {
+                                c.Own.Balance = c.Own.Balance - t.Quantity;
+                                c.Own.BalanceE = c.Own.BalanceE - (t.Quantity * c.Details.Price);
+                                c.Own.TotalAchat = c.Own.TotalAchat - t.Total;
+                                c.Own.Gains = c.Own.BalanceE - c.Own.TotalAchat;
+                                if (c.Own.Balance == 0)
+                                {
+                                    c.Own.OwnB = false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             // Liste Acceuil
             this.ItemsM = new ObservableCollection<CryptoViewModel>();
             MainList();
@@ -100,7 +133,6 @@ namespace ViewModel
                     },
                     Own = new CryptoOwn()
                     {
-                        Allocation = 0,
                         Balance = 0,
                         Gains = 0,
                         BalanceE = 0,

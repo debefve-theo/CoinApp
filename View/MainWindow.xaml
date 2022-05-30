@@ -214,7 +214,7 @@
 
                                 <TextBlock x:Name="BoxNow" Text="{Binding CurrentUser.SoldeNow, StringFormat={}{0:N2} €}" Grid.Row="1" Grid.Column="0" FontSize="32" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="40,13,0,0" Grid.ColumnSpan="2"/>
                                 <Border Grid.Row="1" Grid.Column="2" Background="#00b894" CornerRadius="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,0" Height="40">
-                                    <TextBlock x:Name="BoxNowPercent" Text="+ 2,31%" FontSize="16" FontWeight="Black" Foreground="White" Padding="15,10,15,10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                                    <TextBlock x:Name="BoxNowPercent" Text="+ 0,00%" FontSize="16" FontWeight="Black" Foreground="White" Padding="15,10,15,10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                                 </Border>
                             </Grid>
                         </Border>
@@ -251,7 +251,7 @@
                                         <DataGridTextColumn Header="24h" Binding="{Binding Details.Change1D, StringFormat={}{0:N2} %}" Width="15*"/>
                                         <DataGridTextColumn Header="Balance" Binding="{Binding Own.BalanceE, StringFormat={}{0:N2} €}" Width="15*"/>
                                         <DataGridTextColumn Header="Gains/Perte" Binding="{Binding Own.Gains, StringFormat={}{0:N2} €}" Width="20*"/>
-                                        <DataGridTextColumn Header="Allocations" Binding="{Binding Own.Allocation, StringFormat={}{0:N2} %}" Width="20*"/>
+                                        <DataGridTextColumn Header="Total Achat" Binding="{Binding Own.TotalAchat, StringFormat={}{0:N2} €}" Width="20*"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Border>
