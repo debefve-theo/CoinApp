@@ -47,7 +47,8 @@ namespace View
                     UserName = usr,
                     Password = pswd,
                     TotalAchat = 0,
-                    SoldeNow = 0
+                    SoldeNow = 1,
+                    Solde24 = 0,
                 });
 
                 ViewModel.ItemsU.Add(U);

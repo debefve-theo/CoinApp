@@ -133,11 +133,10 @@ namespace View
                 myBinding1.StringFormat = "{0:N2} €";
                 BoxNow.SetBinding(TextBlock.TextProperty, myBinding1);
 
-                /*Binding myBinding2 = new Binding("");
+                Binding myBinding2 = new Binding("Percent24");
                 myBinding2.Source = ViewModel.CurrentUser;
                 myBinding2.StringFormat = "{0:N2} %";
-                BoxNowPercent.SetBinding(TextBlock.TextProperty, myBinding2);*/
-                BoxNowPercent.Text = "+ 0.00 %";
+                BoxNowPercent.SetBinding(TextBlock.TextProperty, myBinding2);
 
                 Binding myBinding3 = new Binding("TotalAchat");
                 myBinding3.Source = ViewModel.CurrentUser;

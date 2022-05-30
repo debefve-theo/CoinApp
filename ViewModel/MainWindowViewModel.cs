@@ -23,7 +23,6 @@ namespace ViewModel
         public ObservableCollection<CryptoViewModel> ItemsM { get; set; }
 
         public string Path { get; set; }
-        private int _variationTot { get; set; }
         #endregion
 
         #region MAIN
@@ -65,6 +64,9 @@ namespace ViewModel
             // Crypto
             ItemsC = GetCryptoList();
 
+            CurrentUser.SoldeNow = 0;
+            CurrentUser.TotalAchat = 0;
+
             foreach (TransactionViewModel t in ItemsT)
             {
                 if (t.UserName == CurrentUser.UserName)
@@ -78,6 +80,7 @@ namespace ViewModel
                                 c.Own.OwnB = true;
                                 c.Own.Balance = c.Own.Balance + t.Quantity;
                                 c.Own.BalanceE = c.Own.BalanceE + (t.Quantity * c.Details.Price);
+                                c.Own.Balance24 = c.Own.BalanceE * c.Details.Change1D;
                                 c.Own.TotalAchat = c.Own.TotalAchat + t.Total;
                                 c.Own.Gains = c.Own.BalanceE - c.Own.TotalAchat;
                             }
@@ -85,6 +88,7 @@ namespace ViewModel
                             {
                                 c.Own.Balance = c.Own.Balance - t.Quantity;
                                 c.Own.BalanceE = c.Own.BalanceE - (t.Quantity * c.Details.Price);
+                                c.Own.Balance24 = c.Own.BalanceE * c.Details.Change1D;
                                 c.Own.TotalAchat = c.Own.TotalAchat - t.Total;
                                 c.Own.Gains = c.Own.BalanceE - c.Own.TotalAchat;
                                 if (c.Own.Balance == 0)
@@ -102,10 +106,10 @@ namespace ViewModel
                 if (c.Own.OwnB == true)
                 {
                     CurrentUser.SoldeNow = CurrentUser.SoldeNow + c.Own.BalanceE;
+                    CurrentUser.TotalAchat = CurrentUser.TotalAchat + c.Own.TotalAchat;
+                    CurrentUser.Solde24 = CurrentUser.Solde24 + c.Own.Balance24;
                 }
             }
-
-
 
             // Liste Acceuil
             this.ItemsM = new ObservableCollection<CryptoViewModel>();

@@ -214,7 +214,7 @@
 
                                 <TextBlock x:Name="BoxNow" Text="{Binding CurrentUser.SoldeNow, StringFormat={}{0:N2} €}" Grid.Row="1" Grid.Column="0" FontSize="32" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="50" Margin="40,13,0,0" Grid.ColumnSpan="2"/>
                                 <Border Grid.Row="1" Grid.Column="2" Background="#00b894" CornerRadius="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,0" Height="40">
-                                    <TextBlock x:Name="BoxNowPercent" Text="+ 0,00%" FontSize="16" FontWeight="Black" Foreground="White" Padding="15,10,15,10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                                    <TextBlock x:Name="BoxNowPercent" Text="{Binding CurrentUser.Percent24, StringFormat={}{0:N2} %}" FontSize="16" FontWeight="Black" Foreground="White" Padding="15,10,15,10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                                 </Border>
                             </Grid>
                         </Border>

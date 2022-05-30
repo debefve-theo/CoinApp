@@ -67,6 +67,20 @@ namespace ViewModel
             }
         }
 
+        public double Solde24
+        {
+            get => this._model.Solde24;
+            set
+            {
+                this._model.Solde24 = value;
+                this.NotifyPropertyChanged(nameof(Solde24));
+            }
+        }
+
+        public double Percent24
+        {
+            get { return _model.Percent24; }
+        }
         public double GainPerte
         {
             get { return _model.GainPerte; }
