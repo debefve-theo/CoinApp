@@ -12,7 +12,7 @@ Avec cette application vous allez avoir une vue ensemble sur tout vos investisse
 <!-- -->
 :page_facing_up: [Mockup](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/mockups.pdf)
 <!-- -->
-:page_facing_up: [Diagramme des classes](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/DiagrammeDesClasses.mdj)
+:page_facing_up: [Diagramme des classes](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/DiagrammeDesClasses.png)
 <!-- -->
 ### Home
 Sur la première page vous pouvez retrouver :
@@ -67,13 +67,12 @@ Modification du mot de passe
 
 ## Architecture des classe
 <!-- -->
-![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/DiagrammeUML.png)
+![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/DiagrammeDesClasses.png)
 <!-- -->
 ### Classe Crypto
 + Identifiant
 + Nom
 + Symbol
-
 + Une instance de la classe CryptoDetails
 + Une instance de la classe CryptoOwn
 
@@ -97,7 +96,6 @@ Modification du mot de passe
 + Identifiant
 + Nom d'utilisateur
 + Mot de passe
-
 + Solde total actuel
 + Prix total d'achat
 + Gains ou perte total
@@ -110,8 +108,6 @@ Modification du mot de passe
 + Frais de la transaction
 + Date et heure de la transaction
 + Nom de la plateforme
-
 + Une instance de la classe Crypto
-
 + Prix (Prix par token * quantité)
 + Total (Prix + Frais)
