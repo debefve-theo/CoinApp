@@ -37,8 +37,7 @@ namespace View
 
             if (cp)
             {
-                // réécrire dans le fichier
-                int i = 0;
+                ViewModel.SaveFileU();
             }
 
             Close();
@@ -58,7 +57,6 @@ namespace View
                     if (Equals(NewPassField.Password, NewPassConfField.Password))
                     {
                         ViewModel.CurrentUser.Password = NewPassField.Password;
-                        MessageBox.Show("Ok !" + "--" + ViewModel.CurrentUser.Password + "--");
                         foreach (UserViewModel u in ViewModel.ItemsU)
                         {
                             if (u.UserName == ViewModel.CurrentUser.UserName)
@@ -99,10 +97,6 @@ namespace View
                 }
 
                 TextBlockFile.Text = directoryName;
-            }
-            else
-            {
-
             }
         }
 

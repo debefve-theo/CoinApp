@@ -27,6 +27,8 @@ namespace View
             ViewModel.ItemsTU.Add(CurrentTransaction);
             UpdateData();
             ViewModel.MainList();
+            ViewModel.SaveFileU();
+            ViewModel.SaveFileT();
             Close();
         }
 
@@ -37,6 +39,8 @@ namespace View
             ViewModel.ItemsTU.Add(CurrentTransaction);
             UpdateData();
             ViewModel.MainList();
+            ViewModel.SaveFileU();
+            ViewModel.SaveFileT();
             CleanField();
         }
 
@@ -73,13 +77,11 @@ namespace View
                 }
                 else // Possible d'acheter
                 {
-                    double i = CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price;
-                    //CurrentTransaction.Cryptocurrency.Own = CryptoOwn(true, CurrentTransaction.Quantity, i, CurrentTransaction.Total, 0, 0);
                     CurrentTransaction.Cryptocurrency.Own.OwnB = true;
                     CurrentTransaction.Cryptocurrency.Own.Balance = CurrentTransaction.Quantity;
-                    CurrentTransaction.Cryptocurrency.Own.BalanceE = i;
+                    CurrentTransaction.Cryptocurrency.Own.BalanceE = CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price;
                     CurrentTransaction.Cryptocurrency.Own.TotalAchat = CurrentTransaction.Total;
-                    // ********
+
                     ViewModel.CurrentUser.SoldeNow = ViewModel.CurrentUser.SoldeNow + (CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price);
                     ViewModel.CurrentUser.TotalAchat = ViewModel.CurrentUser.TotalAchat + CurrentTransaction.Total;
                 }
@@ -90,6 +92,7 @@ namespace View
                 {
                     CurrentTransaction.Cryptocurrency.Own.Balance = CurrentTransaction.Cryptocurrency.Own.Balance - CurrentTransaction.Quantity;
                     CurrentTransaction.Cryptocurrency.Own.BalanceE = CurrentTransaction.Cryptocurrency.Own.BalanceE - (CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price);
+                    
                     ViewModel.CurrentUser.SoldeNow = ViewModel.CurrentUser.SoldeNow - (CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price);
                     ViewModel.CurrentUser.TotalAchat = ViewModel.CurrentUser.TotalAchat - CurrentTransaction.Total;
                 }
@@ -98,8 +101,18 @@ namespace View
                     CurrentTransaction.Cryptocurrency.Own.Balance = CurrentTransaction.Cryptocurrency.Own.Balance + CurrentTransaction.Quantity;
                     CurrentTransaction.Cryptocurrency.Own.BalanceE = CurrentTransaction.Cryptocurrency.Own.BalanceE + (CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price);
                     CurrentTransaction.Cryptocurrency.Own.TotalAchat = CurrentTransaction.Cryptocurrency.Own.TotalAchat + CurrentTransaction.Total;
+                    
                     ViewModel.CurrentUser.SoldeNow = ViewModel.CurrentUser.SoldeNow + (CurrentTransaction.Quantity * CurrentTransaction.Cryptocurrency.Details.Price);
                     ViewModel.CurrentUser.TotalAchat = ViewModel.CurrentUser.TotalAchat + CurrentTransaction.Total;
+                }
+            }
+
+            foreach (UserViewModel u in ViewModel.ItemsU)
+            {
+                if (u.UserName == ViewModel.CurrentUser.UserName)
+                {
+                    u.SoldeNow = ViewModel.CurrentUser.SoldeNow;
+                    u.TotalAchat = ViewModel.CurrentUser.TotalAchat;
                 }
             }
         }

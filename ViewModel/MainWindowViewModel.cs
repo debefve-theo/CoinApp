@@ -23,6 +23,7 @@ namespace ViewModel
         public ObservableCollection<CryptoViewModel> ItemsM { get; set; }
 
         public string Path { get; set; }
+        private int _variationTot { get; set; }
         #endregion
 
         #region MAIN
@@ -95,6 +96,16 @@ namespace ViewModel
                     }
                 }
             }
+
+            foreach (CryptoViewModel c in ItemsC)
+            {
+                if (c.Own.OwnB == true)
+                {
+                    CurrentUser.SoldeNow = CurrentUser.SoldeNow + c.Own.BalanceE;
+                }
+            }
+
+
 
             // Liste Acceuil
             this.ItemsM = new ObservableCollection<CryptoViewModel>();
@@ -201,11 +212,14 @@ namespace ViewModel
             }
         }
 
-        public void SaveFileT()
+        public void SaveFileU()
         {
             string jsonString1 = System.Text.Json.JsonSerializer.Serialize(ItemsU);
             File.WriteAllText(Path + "\\data.json", jsonString1);
+        }
 
+        public void SaveFileT()
+        {
             string jsonString2 = System.Text.Json.JsonSerializer.Serialize(ItemsT);
             File.WriteAllText(Path + "\\dataT.json", jsonString2);
         }

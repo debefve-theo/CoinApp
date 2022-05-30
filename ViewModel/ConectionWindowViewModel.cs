@@ -42,6 +42,8 @@ namespace ViewModel
             this.ItemsU = new ObservableCollection<UserViewModel>();
 
             OpenFileU();
+
+            int i = 1 + 1;
         }
 
         public void OpenFileU()

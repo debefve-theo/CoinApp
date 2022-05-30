@@ -14,7 +14,7 @@ namespace View
         public MainWindowViewModel ViewModel { get; set; }
 
         private bool _reduce = true, _eye = true;
-        
+
         public MainWindow(UserViewModel user)
         {
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace View
 
         protected override void OnClosed(EventArgs e)
         {
+            ViewModel.SaveFileU();
             ViewModel.SaveFileT();
             base.OnClosed(e);
         }
