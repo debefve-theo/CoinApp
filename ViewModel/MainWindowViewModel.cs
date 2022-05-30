@@ -218,6 +218,11 @@ namespace ViewModel
 
         public void SaveFileU()
         {
+            foreach (UserViewModel u in ItemsU)
+            {
+                u.SoldeNow = 1;
+            }
+
             string jsonString1 = System.Text.Json.JsonSerializer.Serialize(ItemsU);
             File.WriteAllText(Path + "\\data.json", jsonString1);
         }
