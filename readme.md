@@ -4,13 +4,15 @@ Projet final dans le cadre du cours ***Développement orienté objets et multit�
 HEPL Seraing Informatique de gestion Bloc2 Juin 2022
 
 <!-- -->
-![Page Home](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/Cover.png)
+![Page Home](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/Cover.jpg)
 <!-- -->
 
 ## Présentation générale
 Avec cette application vous allez avoir une vue ensemble sur tout vos investissements dans les Crypto Monnaies. Ils vous suffira d'encoder toutes vos transaction et l'application ferra le reste. 
 <!-- -->
-:page_facing_up: [Mockup](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/mockups.pdf)
+:page_facing_up: [Enoncé](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/Enonce.pdf)
+<!-- -->
+:page_facing_up: [Mockup](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/Mockups.pdf)
 <!-- -->
 :page_facing_up: [Diagramme des classes](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/DiagrammeDesClasses.png)
 <!-- -->
