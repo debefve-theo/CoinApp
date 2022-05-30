@@ -1,0 +1,21 @@
+Background
+	- #FFFFFFFF (White)	
+	- #FFDFE6E9 (Gray)
+
+Button
+	- #FFE74C3C (Light Red)
+	- #d63031 (Dark Red)
+
+	- #55efc4 (Light Green)
+	- #00b894 (Dark Green)
+
+	- #74b9ff (Light Blue)
+	- #0984e3 (Dark Blue)
+
+	- #e17055 (Orange)
+
+Black
+	- #2d3436
+
+White 
+	- #f5f6fa (Linx white)

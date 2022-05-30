@@ -1,0 +1,62 @@
+            double i = currentTransaction.Quantity * ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Details.Price;
+
+            if (((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own is null)
+            {
+                if ((bool)RadioButtonV.IsChecked)
+                {
+                    // impossible possède pas cette crypto
+                }
+                else
+                {
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own = new CryptoOwn(true, currentTransaction.Quantity, i, currentTransaction.Total, 0, 0);
+                }
+            }
+            else
+            {
+                if ((bool)RadioButtonV.IsChecked)
+                {
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance - currentTransaction.Quantity;
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE - (currentTransaction.Quantity * ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Details.Price);
+                    ViewModel.UpdateTotalAcahat();
+                }
+                else
+                {
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.Balance + currentTransaction.Quantity;
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.BalanceE + (currentTransaction.Quantity * ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Details.Price);
+                    ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.TotalAchat = ((CryptoViewModel)FieldCrypto.SelectedItem).Model.Own.TotalAchat + currentTransaction.Total;
+                }
+            }
+
+VM
+
+        public void MainList()
+        {
+            CurrentUser.SoldeNow = 0;
+            CurrentUser.TotalAchat = 0;
+
+            foreach (CryptoViewModel element in ItemsC)
+            {
+                if (element.Own is not null)  
+                {
+                    ItemsM.Add(element);
+                    //SoldeNow = SoldeNow + element.Own.BalanceE;
+                    CurrentUser.SoldeNow = CurrentUser.SoldeNow + element.Own.BalanceE;
+                    //TotalAchat = TotalAchat + element.Own.TotalAchat;
+                    CurrentUser.TotalAchat = CurrentUser.TotalAchat + element.Own.TotalAchat;
+                }
+            }
+        }
+
+        public void UpdateMainList()
+        {
+            ItemsM.Clear();
+            MainList();
+        }
+
+        public void UpdateTotalAcahat()
+        {
+            foreach (TransactionViewModel element in ItemsT)
+            {
+                CurrentUser.TotalAchat = CurrentUser.TotalAchat + element.Total;
+            }
+        }
