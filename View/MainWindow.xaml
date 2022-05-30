@@ -261,25 +261,12 @@
 
                 <!-- ########## Transaction ########## -->
                 <StackPanel Grid.Column="1">
-                    <Grid Margin="40,20,40,20">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
 
                         <!-- Header -->
-                        <TextBlock Grid.Column="0" Text="Votre portfolio" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"/>
-                        <Border Grid.Column="1" Background="white" CornerRadius="15" HorizontalAlignment="Right" Width="220" Height="45">
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" SelectedIndex="0" Background="{x:Null}" BorderBrush="{x:Null}">
-                                <ComboBoxItem Content="All"/>
-                                <ComboBoxItem Content="Achat"/>
-                                <ComboBoxItem Content="Vente"/>
-                            </ComboBox>
-                        </Border>
-                    </Grid>
+                    <TextBlock Grid.Column="0" Text="Vos Transactions" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="40,30,0,0"/>
 
                     <!-- List -->
-                    <Border Background="white" CornerRadius="15" Margin="40,0,40,0" Height="555">
+                    <Border  Background="white" CornerRadius="15" Margin="40,25,40,0" Height="560" Padding="0,0,0,0">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="90*"/>
@@ -310,7 +297,7 @@
                 <StackPanel Grid.Column="2">
 
                     <!-- Header -->
-                    <TextBlock Grid.Column="0" Text="Top 50" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="40,30,0,0"/>
+                    <TextBlock Grid.Column="0" Text="Watchlist" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="40,30,0,0"/>
 
                     <!-- List -->
                     <Border Background="white" CornerRadius="15" Margin="40,25,40,0" Height="560" Padding="0,0,0,0">
