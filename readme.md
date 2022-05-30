@@ -12,6 +12,8 @@ Avec cette application vous allez avoir une vue ensemble sur tout vos investisse
 <!-- -->
 :page_facing_up: [Mockup](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/mockups.pdf)
 <!-- -->
+:page_facing_up: [Diagramme des classes](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/documentation/DiagrammeDesClasses.mdj)
+<!-- -->
 ### Home
 Sur la première page vous pouvez retrouver :
 + Votre solde actuel ainssi que l'augmentaion/diminution en 24h
@@ -29,10 +31,11 @@ Sur la page de vous pouvez retrouver :
 Pour ajouter une transaction a la liste il faut les données suivante :
 + Savoir si c'est un achat ou une vente
 + La Crypto Monnaie
-+ La date de la transaction
++ La date et l'heure de la transaction
 + La quantité achetée
 + Le prix du token a ce moment la
 + Les frais
++ La plateforme ou s'effectue la transaction
 <!-- -->
 ![Page Transaction Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/App_new_transaction.png)
 <!-- -->
@@ -59,5 +62,56 @@ Paramètres des fichiers de sauvegardes
 <!-- -->
 Modification du mot de passe
 <!-- -->
-![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/App_setting_pass.png)
+![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/screenshot/App_settings_pass.png)
 <!-- -->
+
+## Architecture des classe
+<!-- -->
+![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/DiagrammeUML.png)
+<!-- -->
+### Classe Crypto
++ Identifiant
++ Nom
++ Symbol
+
++ Une instance de la classe CryptoDetails
++ Une instance de la classe CryptoOwn
+
+### Classe CryptoDetails
++ Prix actuel
++ Volume de transfert en 24h
++ % de variation en 1h
++ % de variation en une jounée
++ % de variation en une semmaine
++ Capitalisation totale
+
+### Classe CryptoOwn
++ Valeur booléenne qui indique si l'utilisateur possède cette Crypto
++ Quantité de token possédé
++ Valeur totale actuel en €
++ Total des valeurs d'achat
++ Gains ou perte
++ % d'allocation dans le portfolio
+
+### Classe User
++ Identifiant
++ Nom d'utilisateur
++ Mot de passe
+
++ Solde total actuel
++ Prix total d'achat
++ Gains ou perte total
+
+### Classe Transaction
++ Identifiant
++ Boolléen a false en cas d'achat et a true en cas de vente
++ Nombre de token
++ Prix par token
++ Frais de la transaction
++ Date et heure de la transaction
++ Nom de la plateforme
+
++ Une instance de la classe Crypto
+
++ Prix (Prix par token * quantité)
++ Total (Prix + Frais)
