@@ -90,9 +90,9 @@ Modification du mot de passe
 + Valeur booléenne qui indique si l'utilisateur possède cette Crypto
 + Quantité de token possédé
 + Valeur totale actuel en €
++ Valeur totale il y a 24h
 + Total des valeurs d'achat
 + Gains ou perte
-+ % d'allocation dans le portfolio
 
 ### Classe User
 + Identifiant
@@ -100,7 +100,8 @@ Modification du mot de passe
 + Mot de passe
 + Solde total actuel
 + Prix total d'achat
-+ Gains ou perte total
++ Solde il y a 24h (Solde24 / SoldeNow)
++ Gains ou perte total (SoldeNow - TotalAchat)
 
 ### Classe Transaction
 + Identifiant
