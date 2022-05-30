@@ -1,6 +1,7 @@
-﻿<!-- Main window -->
+﻿<!-- New transaction window -->
 
 <!-- Copyright © 2022 - Theo Debefve -->
+<!-- Examen JUIN 2022 -->
 
 <Window x:Class="View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

@@ -1,19 +1,21 @@
 ﻿// Copyright © 2022 - Theo Debefve
+// Examen JUIN 2022
 
 using System.Collections.ObjectModel;
 using Microsoft.Win32;
 using Model;
-using Newtonsoft.Json;
-using System.Text.Json;
 
 namespace ViewModel
 {
     public class ConectionWindowViewModel : ViewModelBase
     {
+        #region VARIABLES
         public UserViewModel CurrentUser { get; set; }
         public string Path { get; set; }
         public ObservableCollection<UserViewModel> ItemsU { get; set; }
+        #endregion
 
+        #region MAIN
         public ConectionWindowViewModel()
         {
             // Registre
@@ -32,18 +34,22 @@ namespace ViewModel
                 Path = pk.GetValue("Path").ToString();
             }
 
+            // Création de la liste
+            this.ItemsU = new ObservableCollection<UserViewModel>();
+
             // Verif exist fichier + creation ***
             if (!File.Exists(Path + "\\data.json"))
             {
                 File.Create(Path + "\\data.json");
             }
-
-            // Création de la liste
-            this.ItemsU = new ObservableCollection<UserViewModel>();
-
-            OpenFileU();
+            else
+            {
+                OpenFileU();
+            }
         }
+        #endregion
 
+        #region METHODS
         public void OpenFileU()
         {
             string jsonString = File.ReadAllText(Path + "\\data.json");
@@ -71,5 +77,6 @@ namespace ViewModel
             string jsonString1 = System.Text.Json.JsonSerializer.Serialize(ItemsU);
             File.WriteAllText(Path + "\\data.json", jsonString1);
         }
+        #endregion
     }
 }

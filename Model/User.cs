@@ -1,6 +1,5 @@
 ﻿// Copyright © 2022 - Theo Debefve
-
-using System.Collections.ObjectModel;
+// Examen JUIN 2022
 
 namespace Model
 {

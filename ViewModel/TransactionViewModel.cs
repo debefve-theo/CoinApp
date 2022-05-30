@@ -1,4 +1,5 @@
 ﻿// Copyright © 2022 - Theo Debefve
+// Examen JUIN 2022
 
 using Model;
 
@@ -7,14 +8,12 @@ namespace ViewModel
     public class TransactionViewModel : ViewModelBase
     {
         private Transaction _model;
-
         public TransactionViewModel(Transaction t)
         {
             this._model = t;
         }
 
         #region Get/Set
-
         public double Id
         {
             get => this._model.Id;
@@ -24,7 +23,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(Id));
             }
         }
-
         public string UserName
         {
             get => this._model.UserName;
@@ -34,7 +32,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(UserName));
             }
         }
-
         public bool Av
         {
             get => this._model.Av;
@@ -44,7 +41,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(Av));
             }
         }
-
         public double Quantity
         {
             get => this._model.Quantity;
@@ -56,7 +52,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(Total));
             }
         }
-
         public double PricePerToken
         {
             get => this._model.PricePerToken;
@@ -68,7 +63,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(Total));
             }
         }
-
         public double Fees
         {
             get => this._model.Fees;
@@ -79,7 +73,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(Total));
             }
         }
-
         public DateTime Date
         {
             get => this._model.Date;
@@ -89,7 +82,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(Date));
             }
         }
-
         public string Exchange
         {
             get => this._model.Exchange;
@@ -99,7 +91,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(Exchange));
             }
         }
-
         public Crypto Cryptocurrency
         {
             get => this._model.Cryptocurrency;
@@ -114,12 +105,10 @@ namespace ViewModel
         {
             get { return _model.Price; }
         }
-
         public double Total
         {
             get { return _model.Total; }
         }
-
         #endregion
     }
 }

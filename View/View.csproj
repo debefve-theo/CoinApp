@@ -16,7 +16,6 @@
     <None Remove="IconView.png" />
     <None Remove="IconX.png" />
     <None Remove="logo.png" />
-    <None Remove="soon.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,7 +36,6 @@
     <Resource Include="Img\IconView.png" />
     <Resource Include="Img\IconX.png" />
     <Resource Include="Img\logo.png" />
-    <Resource Include="soon.jpg" />
   </ItemGroup>
 
 </Project>

@@ -71,6 +71,7 @@ Modification du mot de passe
 <!-- -->
 ![Page Watchlist Add](https://github.com/hepl-csb-student22/labo-final-TheoDeb/blob/main/Documentation/DiagrammeDesClasses.png)
 <!-- -->
+
 ### Classe Crypto
 + Identifiant
 + Nom
@@ -114,3 +115,9 @@ Modification du mot de passe
 + Une instance de la classe Crypto
 + Prix (Prix par token * quantité)
 + Total (Prix + Frais)
+
+<!-- -->
+
+Examen Juin 2022
+
+Theo Debefve

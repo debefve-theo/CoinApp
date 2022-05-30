@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Copyright © 2022 - Theo Debefve
+// Examen JUIN 2022
+
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for AProposWindow.xaml
-    /// </summary>
     public partial class AProposWindow : Window
     {
         public AProposWindow()

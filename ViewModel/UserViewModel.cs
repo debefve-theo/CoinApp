@@ -1,4 +1,5 @@
 ﻿// Copyright © 2022 - Theo Debefve
+// Examen JUIN 2022
 
 using System.Collections.ObjectModel;
 using Model;
@@ -8,14 +9,12 @@ namespace ViewModel
     public class UserViewModel : ViewModelBase
     {
         private readonly User _model;
-
         public UserViewModel(User u)
         {
             this._model = u;
         }
 
         #region Get/set
-
         public int Id
         {
             get => this._model.Id;
@@ -25,7 +24,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(Id));
             }
         }
-
         public string UserName
         {
             get => this._model.UserName;
@@ -35,7 +33,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(UserName));
             }
         }
-
         public string Password
         {
             get => this._model.Password;
@@ -55,7 +52,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(GainPerte));
             }
         }
-
         public double TotalAchat
         {
             get => this._model.TotalAchat;
@@ -66,7 +62,6 @@ namespace ViewModel
                 this.NotifyPropertyChanged(nameof(GainPerte));
             }
         }
-
         public double Solde24
         {
             get => this._model.Solde24;
@@ -85,7 +80,6 @@ namespace ViewModel
         {
             get { return _model.GainPerte; }
         }
-
         #endregion
     }
 }

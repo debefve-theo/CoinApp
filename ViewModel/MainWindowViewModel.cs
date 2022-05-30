@@ -1,8 +1,8 @@
 ﻿// Copyright © 2022 - Theo Debefve
+// Examen JUIN 2022
 
 using Model;
 using System.Collections.ObjectModel;
-using System.Reflection.Metadata.Ecma335;
 using ClassLibrary;
 using Microsoft.Win32;
 using Newtonsoft.Json;
@@ -232,7 +232,6 @@ namespace ViewModel
             string jsonString2 = System.Text.Json.JsonSerializer.Serialize(ItemsT);
             File.WriteAllText(Path + "\\dataT.json", jsonString2);
         }
-
         #endregion
     }
 }

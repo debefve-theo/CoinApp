@@ -1,15 +1,20 @@
-﻿<Window x:Class="View.SettingsWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:View"
-        mc:Ignorable="d"
-        Title="&lt;oin - Paramètres" Height="350" Width="500"
-        ResizeMode="NoResize"
-        FontFamily="Segoe UI"
-        Foreground="#2d3436"
-        WindowStartupLocation="CenterScreen">
+﻿<!-- New transaction window -->
+
+<!-- Copyright © 2022 - Theo Debefve -->
+<!-- Examen JUIN 2022 -->
+
+<Window x:Class="View.SettingsWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:View"
+            mc:Ignorable="d"
+            Title="&lt;oin - Paramètres" Height="350" Width="500"
+            ResizeMode="NoResize"
+            FontFamily="Segoe UI"
+            Foreground="#2d3436"
+            WindowStartupLocation="CenterScreen">
     <!-- Ressources -->
     <Window.Resources>
         <Style TargetType="{x:Type Button}"  x:Key="ButtonBase">

@@ -1,4 +1,7 @@
-﻿namespace Model
+﻿// Copyright © 2022 - Theo Debefve
+// Examen JUIN 2022
+
+namespace Model
 {
     public class CryptoDetails
     {

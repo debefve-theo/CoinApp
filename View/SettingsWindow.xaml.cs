@@ -1,7 +1,6 @@
 ﻿// Copyright © 2022 - Theo Debefve
+// Examen JUIN 2022
 
-using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -109,7 +108,7 @@ namespace View
 
             pk.SetValue("Path", _tempPath);
 
-            System.IO.File.Move(ViewModel.Path + "\\dataU.json", _tempPath + "\\dataU.json");
+            System.IO.File.Move(ViewModel.Path + "\\data.json", _tempPath + "\\data.json");
             System.IO.File.Move(ViewModel.Path + "\\dataT.json", _tempPath + "\\dataT.json");
 
             ViewModel.Path = _tempPath;

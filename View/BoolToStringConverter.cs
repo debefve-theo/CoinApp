@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright © 2022 - Theo Debefve
+// Examen JUIN 2022
+
+using System;
 using System.Globalization;
 using System.Windows.Data;
 
